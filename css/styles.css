@@ -1,5 +1,9 @@
 body {
-    background: radial-gradient(ellipse at bottom, #170f27 0%, #392467 100%)  !important;
+    background: radial-gradient(ellipse at bottom, #170f27 0%, #392467 100%) !important;
+}
+
+a {
+    text-decoration: none;
 }
 
 p {
@@ -24,6 +28,8 @@ nav.bg {
 a.custom-btnreddit {
     background-color: #ff5733;
     color: white;
+    white-space: normal;
+    word-wrap: break-word;
 }
 
 a.custom-btnreddit:active {
@@ -35,6 +41,8 @@ a.custom-btnreddit:active {
 button.custom-btnds {
     background-color: #7289da;
     color: white;
+    white-space: normal;
+    word-wrap: break-word;
 }
 
 button.custom-btnds:hover {
@@ -42,49 +50,37 @@ button.custom-btnds:hover {
     color: black;
 }
 
-a.custom-btnig {
-    background-color: #E1306C;
-    color: white;
-}
-
+a.custom-btnig,
 a.custom-btnig:hover {
     background-color: #E1306C;
-    color: black;
+    color: white;
+    white-space: normal;
+    word-wrap: break-word;
 }
 
-a.custom-btntw {
+a.custom-btntw,
+a.custom-btntw:hover {
     background-color: #1D9BF0;
     color: white;
-    border: #1D9BF0 ;
+    border: #1D9BF0;
+    white-space: normal;
+    word-wrap: break-word;
 }
 
-a.custom-btntw:hover {
-    background-color: #1e7cf0;
-    color: black;
-}
-
-a.custom-btnst {
+a.custom-btnst,
+a.custom-btnst:hover,
+a.custom-btnst:active {
     background-color: #2a475e;
     border: #2a475e 20px;
     color: white;
-}
-
-a.custom-btnst:hover {
-    background-color: #28445b;
-    border: #28445b 20px;
-    color: black;
-}
-
-a.custom-btnst:active {
-    background-color: #28445b;
-    border: #28445b 20px;
-    color: black;
+    white-space: normal;
+    word-wrap: break-word;
 }
 
 .name {
     color: #BE6DB7;
     font-family: 'Kanit', sans-serif;
-    font-size: 22vw; 
+    font-size: 22vw;
     position: relative;
     width: 100%;
     text-align: center;
@@ -99,7 +95,7 @@ a.custom-btnst:active {
     position: absolute;
     mix-blend-mode: difference;
     color: #3f3a49;
-    filter:blur(5px)
+    filter: blur(5px);
 }
 
 .neon-name {
@@ -109,28 +105,29 @@ a.custom-btnst:active {
 #icon {
     border-radius: 50%;
     width: 100%;
-    scale: 60%;
+    transform: scale(0.6);
     margin-top: 5%;
 }
 
 .pronouns {
     color: #5a5a5a;
     text-align: center;
-    width: 100%; 
-    padding-bottom: 10% ;
+    width: 100%;
+    padding-bottom: 10%;
 }
 
 .about-me {
     border-radius: 20px;
+    padding-bottom: 2%;
 }
 
-.main  {
+.main {
     text-align: center;
 }
-    
+
 .col-about-me {
     background: linear-gradient(135deg, rgba(129, 1, 189, 0), rgba(113, 0, 148, 0.74));
-    backdrop-filter: blur(10px); 
+    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(119, 3, 197, 0.18);
     box-shadow: 0 8px 32px 0 rgba(106, 14, 148, 0.37);
@@ -160,17 +157,22 @@ a.custom-btnst:active {
 
 a.see-more {
     outline-color: #170f27;
-    border: #000000; 
+    border: #000000;
     color: rgb(255, 0, 255);
 }
 
 a.see-more:hover {
     color: rgb(0, 0, 0);
-    background-color: rgb(180, 110, 250) ;
+    background-color: rgb(180, 110, 250);
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
 }
 
 .cat {
-    scale: 30%;
+    transform: scale(0.3);
 }
 
 #footer {
