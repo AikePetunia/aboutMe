@@ -38,16 +38,13 @@ a.custom-btnreddit:active {
     border: #ff431c;
 }
 
-button.custom-btnds {
+button.custom-btnds,
+button.custom-btnds:hover,
+button.custom-btnds:active {
     background-color: #7289da;
     color: white;
     white-space: normal;
     word-wrap: break-word;
-}
-
-button.custom-btnds:hover {
-    background-color: #7274da;
-    color: black;
 }
 
 a.custom-btnig,
