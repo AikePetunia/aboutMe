@@ -1,187 +1,336 @@
-body {
-    background: radial-gradient(ellipse at bottom, #170f27 0%, #392467 100%) !important;
+:root {
+    --main-bg-color: rgb(10, 10, 10);
+    --neon-color: rgba(162, 2, 255, 0.8);
+    --white-color: #ffffff;
+    --text-color-light: rgb(185, 185, 185);
+    --text-color-dark: rgb(162, 2, 255);
 }
 
-a {
-    text-decoration: none;
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: var(--main-bg-color);
+    color: var(--white-color);
+}
+
+#unic {
+    background: var(--main-bg-color);
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 p {
-    font-family: "Ubuntu", sans-serif;
-    font-weight: 300;
-    font-style: normal;
-    color: rgb(119, 119, 119);
+    font-family: "Source Code Pro", monospace;
+    font-optical-sizing: auto;
+    z-index: 100;
+    margin: 0;
+}
+
+h1 {
+    font-family: "Montserrat", sans-serif;
+    z-index: 100;
+    margin: 0;
+}
+
+.neon-effect {
+    box-shadow: 0 0 10px 5px var(--neon-color);
+    animation: neonGlow 1s infinite alternate;
+    filter: blur(100%);
+}
+
+@keyframes neonGlow {
+    0% {
+        box-shadow: 0 0 10px 5px rgba(162, 2, 255, 0.1);
+    }
+    100% {
+        box-shadow: 0 0 20px 10px rgba(162, 2, 255, 0.2);
+    }
 }
 
 .social-nav {
-    padding-bottom: 3%;
-}
-
-nav.bg {
-    background-color: #2a1e53;
-}
-
-.social-media {
-    margin-right: 1%;
-}
-
-a.custom-btnreddit {
-    background-color: #ff5733;
-    color: white;
-    white-space: normal;
-    word-wrap: break-word;
-}
-
-a.custom-btnreddit:active {
-    background-color: #ff431c;
-    color: black;
-    border: #ff431c;
-}
-
-button.custom-btnds,
-button.custom-btnds:hover,
-button.custom-btnds:active {
-    background-color: #7289da;
-    color: white;
-    white-space: normal;
-    word-wrap: break-word;
-}
-
-a.custom-btnig,
-a.custom-btnig:hover {
-    background-color: #E1306C;
-    color: white;
-    white-space: normal;
-    word-wrap: break-word;
-}
-
-a.custom-btntw,
-a.custom-btntw:hover {
-    background-color: #1D9BF0;
-    color: white;
-    border: #1D9BF0;
-    white-space: normal;
-    word-wrap: break-word;
-}
-
-a.custom-btnst,
-a.custom-btnst:hover,
-a.custom-btnst:active {
-    background-color: #2a475e;
-    border: #2a475e 20px;
-    color: white;
-    white-space: normal;
-    word-wrap: break-word;
-}
-
-.name {
-    color: #BE6DB7;
-    font-family: 'Kanit', sans-serif;
-    font-size: 22vw;
+    background: transparent;
+    top: 0;
+    display: flex;
     position: relative;
-    width: 100%;
-    text-align: center;
 }
 
-.main {
-    height: 20%;
-}
-
-.name::before {
-    content: 'Aike';
+.social-nav::before {
+    content: "";
     position: absolute;
-    mix-blend-mode: difference;
-    color: #3f3a49;
-    filter: blur(5px);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 10px 5px var(--neon-color);
+    z-index: -1;
+    animation: neonGlow 1s infinite alternate;
+    filter: blur(100%);
 }
 
-.neon-name {
-    filter: brightness(200%);
+.floating-navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50px;
+    background-color: black;
+    box-shadow: 0px 4px 12px var(--neon-color);
+    padding: 10px 20px;
+    z-index: 1000;
+}
+
+.floating-navbar .nav-link i {
+    color: var(--white-color); 
+    font-size: 30px;
+}
+
+.floating-navbar a {
+    margin: 0 10px;
+}
+
+a.custom-btnreddit,
+a.custom-btnig,
+a.custom-btntw,
+a.custom-btnst,
+a.custom-btngh {
+    background-color: transparent; 
+    color: var(--white-color);
+    border: none; 
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 24px; 
+    text-decoration: none; 
+    outline: none;
+    padding-left: 20px;
+}
+
+a.custom-btnreddit:hover,
+a.custom-btnig:hover,
+a.custom-btntw:hover,
+a.custom-btnst:hover {
+    color: var(--white-color); 
+}
+
+a.custom-btnreddit:active,
+a.custom-btnig:active,
+a.custom-btntw:active,
+a.custom-btnst:active {
+    color: var(--white-color); 
+}
+
+.row {
+    display: flex; 
+    flex-wrap: nowrap; 
+}
+
+.col-right, .col-left {
+    text-align: center;
+    padding-top: 110px;
+    color: var(--white-color);
+    flex: 1; 
+    height: 100vh; 
+    position: relative; 
+    box-shadow: 0px 1px 2px var(--neon-color),
+                0px 4px 16px var(--neon-color);
+    min-width: 300px; 
+}
+
+.col-left::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit; 
+    box-shadow: 0px 1px 2px var(--neon-color),
+                0px 4px 16px var(--neon-color);
+    z-index: -1; 
+    animation: neonGlow2 1s infinite alternate;
+    filter: blur(8px); 
+    pointer-events: none; 
+}
+
+@keyframes neonGlow2 {
+    0% {
+        box-shadow: 5px 5px 20px 10px rgba(162, 2, 255, 0.1); 
+    }
+    100% {
+        box-shadow: 10px 10px 30px 15px rgba(162, 2, 255, 0.6); 
+    }
+}
+
+.col-right {
+    padding-top: 50px;
+    color: var(--white-color);
 }
 
 #icon {
     border-radius: 50%;
-    width: 100%;
-    transform: scale(0.6);
-    margin-top: 5%;
+    width: 80%;
+    transform: scale(0.8);
+    z-index: 5;
 }
 
-.pronouns {
-    color: #5a5a5a;
+.my-name {
+    color: var(--text-color-dark);
+    font-size: 50px;
+}
+
+.my-things {
+    padding-top: 5px;
+    color: var(--text-color-light);
+}
+
+.knowldege-Icon {
+    padding-top: 80px;
+    font-size: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.stack {
+    background-color: var(--main-bg-color);
+    border-radius: 5%;
     text-align: center;
-    width: 100%;
-    padding-bottom: 10%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.about-me {
-    border-radius: 20px;
-    padding-bottom: 2%;
+@media (max-width: 768px) {
+    .row {
+        overflow-x: auto; 
+    }
 }
 
-.main {
+.lanyard-discordStatus,
+.profile-statusSpotify,
+.profile-statusCode {
+    border-radius: 10px;
+    padding: 20px;
+    color: var(--white-color);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    background-color: var(--main-bg-color);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.profile-statusCode img {
+    border-radius: 8px;
+    margin-left: 20px;
+}
+
+.profile-statusCode p {
+    margin: 5px 0;
+}
+
+.profile-statusCode .time {
+    color: #00ff00;
+    font-size: 14px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
     text-align: center;
+    min-height: 20px;
+    font-size: 10px;
+    opacity: 0.1;
+    margin-top: auto; 
 }
 
-.col-about-me {
-    background: linear-gradient(135deg, rgba(129, 1, 189, 0), rgba(113, 0, 148, 0.74));
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(119, 3, 197, 0.18);
-    box-shadow: 0 8px 32px 0 rgba(106, 14, 148, 0.37);
+.album-art {
+    text-align: left;
 }
 
-.outline {
-    background-color: #45008f !important;
-    box-shadow: 0 0 15px 10px rgb(123, 0, 255);
-    filter: brightness(110%);
+@media (max-width: 768px) {
+    .row {
+        overflow-x: auto; 
+    }
 }
 
-.card-title {
-    font-family: 'Kanit', sans-serif;
-    position: relative;
-    width: 100%;
-    text-align: center;
-    color: black;
+.lanyard-discordStatus {
+    padding-bottom: 50%;
 }
 
-.card-text {
-    font-family: "Ubuntu", sans-serif;
-    font-weight: 300;
-    font-style: normal;
-    color: white;
-    text-align: center;
+.lanyard-discordStatus,
+.profile-statusSpotify,
+.profile-statusCode {
+    border-radius: 10px;
+    padding: 20px;
+    color: var(--white-color);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    background-color: var(--main-bg-color);
+    max-width: 500px;
+    margin: 0 auto;   
 }
 
-a.see-more {
-    outline-color: #170f27;
-    border: #000000;
-    color: rgb(255, 0, 255);
+
+.profile-statusCode img {
+    border-radius: 8px;
+    margin-left: 20px;
 }
 
-a.see-more:hover {
-    color: rgb(0, 0, 0);
-    background-color: rgb(180, 110, 250);
+.profile-statusCode p {
+    margin: 5px 0;
 }
 
-.img-fluid {
-    max-width: 100%;
-    height: auto;
+.profile-statusCode .time {
+    color: #00ff00;
+    font-size: 14px;
 }
 
-.cat {
-    transform: scale(0.3);
+.my-name {
+    padding: 1px;
 }
 
-#footer {
-    color: white;
-    text-align: center;
+.album-art {
+    text-align: left;
 }
+
+.discord-name {
+    margin-bottom: 30px;
+}
+
+.footer{
+    color: #3f3f3f;
+    opacity: 0.8;
+    font-size: 10px;
+}
+
+
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column; 
+    }
+
+    .col-right {
+        order: -1; 
+        margin-bottom: 20px; 
+    }
+
+    .col-left {
+        order: 1; 
+    }
+
+    body, html {
+        margin: 0;
+        padding: 0;
+        background-color: var(--main-bg-color);
+        color: var(--white-color);
+        overflow-x: hidden;
+    }
+}
+
 
 
 
 #stars {
-    width: 1px;
-    height: 1px;
+    width: 2px;
+    height: 2px;
     background: transparent;
     animation: animStar 50s linear infinite;
     box-shadow: 779px 1331px #fff, 324px 42px #fff, 303px 586px #fff,
@@ -366,7 +515,7 @@ a.see-more:hover {
 #stars:after {
     content: '';
     position: absolute;
-    top:2000px;
+    top: 2000px;
     width: 1px;
     height: 1px;
     background: transparent;
@@ -671,7 +820,7 @@ a.see-more:hover {
     width: 3px;
     height: 3px;
     background: transparent;
-    animation: animStar 150s linear;
+    animation: animStar 150s linear infinte;
     box-shadow: 387px 1878px #fff, 760px 1564px #fff, 1487px 999px #fff,
     948px 1828px #fff, 1977px 1001px #fff, 1284px 1963px #fff, 656px 284px #fff,
     1268px 1635px #fff, 1820px 598px #fff, 642px 1900px #fff, 296px 57px #fff,
@@ -734,6 +883,7 @@ a.see-more:hover {
     494px 1957px #fff, 1296px 431px #fff, 175px 1507px #fff, 831px 121px #fff,
     498px 1947px #fff, 617px 880px #fff, 240px 403px #fff;
 }
+
 
 @keyframes animStar {
     from {
