@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             } 
         catch (error) {
-            lanyardStatusElementSpotify.innerHTML = '<p>Error al obtener datos.</p>';
+            lanyardStatusElementSpotify.innerHTML = '<p>Unknown</p>';
             console.error('Error:', error);
         }
 
