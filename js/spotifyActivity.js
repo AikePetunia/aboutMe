@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <img src="${albumArtUrl}" alt="Album Art" style="width: 100px; height: 100px; margin-right: 15px;" />
                                 <div style="flex-grow: 1;">
                                     <a href="${songLink}" style="text-decoration: none; color: black; font-weight: bold; font-size: 18px;">
-                                        ${songName}
+                                        ${songName}   <i class="fa-solid fa-compact-disc fa-spin" style="--fa-animation-duration: 1s; --fa-animation-iteration-count: 1;"></i>
                                     </a>
                                     <p style="margin: 5px 0; font-size: 12px; color: gray;">${album}</p>
                                     <p style="margin: 5px 0;"> ${artist}</p>
