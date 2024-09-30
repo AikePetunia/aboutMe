@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
       //console.log(data);
 
     } catch (error) {
-      lanyardStatusElementCode.innerHTML = '<p>Error al obtener datos.</p>';
+      lanyardStatusElementCode.innerHTML = '<p>Unknown.</p>';
       console.error('Error:', error);
     }
   };
