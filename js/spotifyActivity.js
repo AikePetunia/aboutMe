@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
   
             const data = await response.json();
+            let statusText = 'Im not listening anything';
             
                 
                 const spotifyListeningTo = data.data.spotify;
