@@ -1,47 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => {
   const lanyardStatusElementCode = document.getElementById('lanyard-statusCode');
 
-  const visitCountElement = document.getElementById('visitCountElement');
-
-  const updateVisitCount = async () => {
-    try {
-      const response = await fetch('https://aikepetunia.github.io/AikePetuniaa/', {
-        method: 'POST'
-      });
-
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-
-      const data = await response.json();
-      visitCountElement.textContent = `👁️: ${data.visitCount}`;
-    } catch (error) {
-      visitCountElement.textContent = '';
-      console.error('Error:', error);
-    }
-  };
-
-  updateVisitCount();
+  const visitCountElement = document.getElementById('visit-count');
+  let visitCount = localStorage.getItem('visitCount') || 0;
+  visitCount++;
+  localStorage.setItem('visitCount', visitCount);
+  visitCountElement.textContent = `👁️: ${visitCount}`;
 
   const localTimeElement = document.getElementById('local-time');
 
-  const getMyLocalTime = () => {
+  const getLocalTime = () => {
     const now = new Date();
-    return now.toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit', timeZone: 'America/Argentina/Buenos_Aires' });
+    return now.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit'});
   };
 
   const updateLocalTime = () => {
-    const currentTime = getMyLocalTime();
-    if (currentTime >= '08:00' && currentTime <= '13:00') {
-      localTimeElement.textContent = `☀️ ${currentTime}`;
-    } else if (currentTime >= '13:00' && currentTime <= '19:00') { 
-      localTimeElement.textContent = `⛅ ${currentTime}`;
-    } else if (currentTime >= '19:00' && currentTime <= '23:00') { 
-      localTimeElement.textContent = `🌙 ${currentTime}`;
-    } else if (currentTime >= '23:00' && currentTime <= '08:00') {
-      localTimeElement.textContent = `💤 ${currentTime}`;
+    if (getLocalTime() >= '08:00' && getLocalTime() <= '13:00') {
+      localTimeElement.textContent = `☀️ ${getLocalTime()}`;
+    } else if (getLocalTime() >= '13:00' && getLocalTime() <= '19:00') { 
+      localTimeElement.textContent = `⛅ ${getLocalTime()}`
+    } else if (getLocalTime() >= '19:00' && getLocalTime() <= '23:00') { 
+      localTimeElement.textContent = `🌙 ${getLocalTime()}`
+    } else if (getLocalTime() >= '23:00' && getLocalTime() <= '08:00') {
+      localTimeElement.textContent = `💤 ${getLocalTime()}`
     } else { 
-      localTimeElement.textContent = `🕒 ${currentTime}`;
+      localTimeElement.textContent = `🕒 ${getLocalTime()}`
     }
   };
 
