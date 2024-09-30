@@ -63,9 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     };
                     updateProgress(); 
                     setInterval(updateProgress, 1000); 
-                } else {
-                    lanyardStatusElementSpotify.innerHTML = `<p>${statusText}</p>`;
-                }
+                } 
             } 
         catch (error) {
             lanyardStatusElementSpotify.innerHTML = '<p>Unknown</p>';
