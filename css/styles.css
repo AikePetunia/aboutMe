@@ -360,7 +360,6 @@ footer {
     font-size: 10px;
 }
 
-
 @media (max-width: 768px) {
     .row {
         flex-direction: column; 
@@ -383,9 +382,6 @@ footer {
         overflow-x: hidden;
     }
 }
-
-
-
 
 #stars {
     width: 2px;
