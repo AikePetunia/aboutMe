@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const smallImageUrl = getImageUrl(assets.small_image, codeActivity.application_id);
       const largeText = assets.large_text || 'No disponible';
       const startTime = codeActivity.timestamps ? codeActivity.timestamps.start : Date.now();
-      const fileName = codeActivity.state ? codeActivity.state.split(':')[0] : 'Desconocido';
+      const fileName = codeActivity.state ? codeActivity.state.split(':')[0] : 'Unknown';
 
       const updateElapsedTime = () => {
         const elapsedTime = formatElapsedTime(Date.now() - startTime);
