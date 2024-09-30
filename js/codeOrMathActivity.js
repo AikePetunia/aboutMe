@@ -1,31 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
   const lanyardStatusElementCode = document.getElementById('lanyard-statusCode');
 
-  const visitCountElement = document.getElementById('visit-count');
-  let visitCount = localStorage.getItem('visitCount') || 0;
-  visitCount++;
-  localStorage.setItem('visitCount', visitCount);
-  visitCountElement.textContent = `👁️: ${visitCount}`;
-
   const localTimeElement = document.getElementById('local-time');
 
-  const getLocalTime = () => {
+  const getMyLocalTime = () => {
     const now = new Date();
-    return now.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit'});
+    return now.toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit', timeZone: 'America/Argentina/Buenos_Aires' });
   };
 
   const updateLocalTime = () => {
-    if (getLocalTime() >= '08:00' && getLocalTime() <= '13:00') {
-      localTimeElement.textContent = `☀️ ${getLocalTime()}`;
-    } else if (getLocalTime() >= '13:00' && getLocalTime() <= '19:00') { 
-      localTimeElement.textContent = `⛅ ${getLocalTime()}`
-    } else if (getLocalTime() >= '19:00' && getLocalTime() <= '23:00') { 
-      localTimeElement.textContent = `🌙 ${getLocalTime()}`
-    } else if (getLocalTime() >= '23:00' && getLocalTime() <= '08:00') {
-      localTimeElement.textContent = `💤 ${getLocalTime()}`
+    const currentTime = getMyLocalTime();
+    if (currentTime >= '08:00' && currentTime <= '13:00') {
+      localTimeElement.textContent = `☀️ ${currentTime}`;
+    } else if (currentTime >= '13:00' && currentTime <= '19:00') { 
+      localTimeElement.textContent = `⛅ ${currentTime}`;
+    } else if (currentTime >= '19:00' && currentTime <= '23:00') { 
+      localTimeElement.textContent = `🌙 ${currentTime}`;
+    } else if (currentTime >= '23:00' && currentTime <= '08:00') {
+      localTimeElement.textContent = `💤 ${currentTime}`;
     } else { 
-      localTimeElement.textContent = `🕒 ${getLocalTime()}`
-    }
+      localTimeElement.textContent = `🕒 ${currentTime}`;
+    }s
   };
 
   setInterval(updateLocalTime, 1000);
