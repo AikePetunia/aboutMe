@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
   const lanyardStatusElementCode = document.getElementById('lanyard-statusCode');
 
-  const visitCountElement = document.getElementById('visit-count');
-  let visitCount = localStorage.getItem('visitCount') || 0;
-  visitCount++;
-  localStorage.setItem('visitCount', visitCount);
-  visitCountElement.textContent = `👁️: ${visitCount}`;
+  //const visitCountElement = document.getElementById('visit-count');
+  //let visitCount = localStorage.getItem('visitCount') || 0;
+  //visitCount++;
+  //localStorage.setItem('visitCount', visitCount);
+  //visitCountElement.textContent = `👁️: ${visitCount}`;
 
   const localTimeElement = document.getElementById('local-time');
 
