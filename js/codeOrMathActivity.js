@@ -8,23 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     return now.toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit', timeZone: 'America/Argentina/Buenos_Aires' });
   };
 
-  const updateLocalTime = () => {
-    const currentTime = getMyLocalTime();
-    if (currentTime >= '08:00' && currentTime <= '13:00') {
-      localTimeElement.textContent = `☀️ ${currentTime}`;
-    } else if (currentTime >= '13:00' && currentTime <= '19:00') { 
-      localTimeElement.textContent = `⛅ ${currentTime}`;
-    } else if (currentTime >= '19:00' && currentTime <= '23:00') { 
-      localTimeElement.textContent = `🌙 ${currentTime}`;
-    } else if (currentTime >= '23:00' && currentTime <= '08:00') {
-      localTimeElement.textContent = `💤 ${currentTime}`;
-    } else { 
-      localTimeElement.textContent = `🕒 ${currentTime}`;
-    }s
-  };
-
-  setInterval(updateLocalTime, 1000);
-
   const fetchLanyardStatus = async () => {
     try {
       const response = await fetch('https://api.lanyard.rest/v1/users/1083501646807576576'); // Cambia el ID por el correcto
@@ -35,8 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = await response.json();
       const activities = data.data.activities || [];
       displayActivity(activities);
-      //console.log(data.data.activities);
-      //console.log(data);
+      console.log(data.data.activities);
+      console.log(data);
 
     } catch (error) {
       lanyardStatusElementCode.innerHTML = '<p>Error al obtener datos.</p>';
@@ -54,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const displayActivity = (activities) => {
     const codeActivity = activities.find(activity => activity.name === "Code");
-    const mathActivity = activities.find(activity => activity.name === "xournalpp Algebra & Calculus II");
+    const mathActivity = activities.find(activity => activity.name === "Algebra & Calculus");
 
     if (codeActivity) {
       const assets = codeActivity.assets || {};
@@ -79,22 +62,18 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
         `;
       };
-
-      updateElapsedTime();
       setInterval(updateElapsedTime, 1000);
-
       //console.log(codeActivity.details);
       //console.log('Work time:', elapsedTime);
       //console.log('File name:', fileName); 
-
     } 
 
     if (mathActivity || codeActivity == false) {
       console.log(mathActivity);
 
       const assets = mathActivity.assets || {};
-      const xournalppLogo = 'https://lignux.com/wp-content/uploads/2021/07/Xournal-logo.png';
-      const subject = 'Álgebra & Calculus II';
+      const obsidianLogo = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/2023_Obsidian_logo.svg/512px-2023_Obsidian_logo.svg.png';
+      const subject = 'Álgebra & Calculus';
       const startTime = mathActivity.timestamps ? mathActivity.timestamps.start : Date.now();
 
       const updateElapsedTime = () => {
@@ -107,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p style="font-size: 14px; color: #00ff00; margin: 5px 0;">${elapsedTime}</p>
                 <p>${mathActivity.details || ''}</p>
               </div>
-              <img src="${xournalppLogo}" alt="xournalLogo" style="width: 100px; height: 100px; border-radius: 8px; margin-left: 20px;" />
+              <img src="${obsidianLogo}" alt="obsidian" style="width: 100px; height: 100px; border-radius: 8px; margin-left: 20px;" />
             </div>
           </div>
         `;
