@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const displayActivity = (activities) => {
     const codeActivity = activities.find(activity => activity.name === "Code");
-    const mathActivity = activities.find(activity => activity.name === "Algebra & Calculus");
+    const mathActivity = activities.find(activity => activity.name === "Obsidian");
 
     if (codeActivity) {
       const assets = codeActivity.assets || {};
