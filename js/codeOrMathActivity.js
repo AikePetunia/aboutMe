@@ -1,13 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const lanyardStatusElementCode = document.getElementById('lanyard-statusCode');
 
-  const localTimeElement = document.getElementById('local-time');
-
-  const getMyLocalTime = () => {
-    const now = new Date();
-    return now.toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit', timeZone: 'America/Argentina/Buenos_Aires' });
-  };
-
   const fetchLanyardStatus = async () => {
     try {
       const response = await fetch('https://api.lanyard.rest/v1/users/1083501646807576576'); // Cambia el ID por el correcto
@@ -37,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const displayActivity = (activities) => {
     const codeActivity = activities.find(activity => activity.name === "Code");
-    const mathActivity = activities.find(activity => activity.name === "Obsidian");
+    
 
     if (codeActivity) {
       const assets = codeActivity.assets || {};
