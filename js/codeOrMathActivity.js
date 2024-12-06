@@ -15,8 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log(data);
 
     } catch (error) {
-      lanyardStatusElementCode.innerHTML = '<p>Error al obtener datos.</p>';
-      console.error('Error:', error);
+      console.error('Error, no estoy programando:', error);
     }
   };
 
