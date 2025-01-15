@@ -1,6 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
   const lanyardStatusElementCode = document.getElementById('lanyard-statusCode');
 
+  const getLocalTime = () => {
+    const now = new Date();
+    return now.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit'});
+  };
+
+  setInterval(1000);
+
   const fetchLanyardStatus = async () => {
     try {
       const response = await fetch('https://api.lanyard.rest/v1/users/1083501646807576576'); // Cambia el ID por el correcto
@@ -11,11 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = await response.json();
       const activities = data.data.activities || [];
       displayActivity(activities);
-      console.log(data.data.activities);
-      console.log(data);
 
     } catch (error) {
-      console.error('Error, no estoy programando:', error);
+      lanyardStatusElementCode.innerHTML = '<p>Error al obtener datos.</p>';
+      console.error('Error:', error);
     }
   };
 
@@ -29,12 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const displayActivity = (activities) => {
     const codeActivity = activities.find(activity => activity.name === "Code");
-    
+    const mathActivity = activities.find(activity => activity.name === "obsidian");
 
     if (codeActivity) {
       const assets = codeActivity.assets || {};
       const largeImageUrl = getImageUrl(assets.large_image, codeActivity.application_id);
-      const smallImageUrl = getImageUrl(assets.small_image, codeActivity.application_id);
       const largeText = assets.large_text || 'No disponible';
       const startTime = codeActivity.timestamps ? codeActivity.timestamps.start : Date.now();
       const fileName = codeActivity.state ? codeActivity.state.split(':')[0] : 'Unknown';
@@ -54,10 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
         `;
       };
+      updateElapsedTime();
       setInterval(updateElapsedTime, 1000);
-      //console.log(codeActivity.details);
-      //console.log('Work time:', elapsedTime);
-      //console.log('File name:', fileName); 
     } 
 
     if (mathActivity || codeActivity == false) {
@@ -65,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const assets = mathActivity.assets || {};
       const obsidianLogo = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/2023_Obsidian_logo.svg/512px-2023_Obsidian_logo.svg.png';
-      const subject = 'Álgebra & Calculus';
+      const subject = 'Lineal Algebra';
       const startTime = mathActivity.timestamps ? mathActivity.timestamps.start : Date.now();
 
       const updateElapsedTime = () => {
@@ -78,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p style="font-size: 14px; color: #00ff00; margin: 5px 0;">${elapsedTime}</p>
                 <p>${mathActivity.details || ''}</p>
               </div>
-              <img src="${obsidianLogo}" alt="obsidian" style="width: 100px; height: 100px; border-radius: 8px; margin-left: 20px;" />
+              <img src="${obsidianLogo}" alt="obsidianLogo" style="width: 100px; height: 100px; border-radius: 8px; margin-left: 20px;" />
             </div>
           </div>
         `;
