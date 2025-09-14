@@ -1,0 +1,9 @@
+h1 {
+  color: white;
+}
+
+.profile-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}

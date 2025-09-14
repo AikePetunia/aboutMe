@@ -1,9 +1,10 @@
 import "./styles/App.css";
+import WhoAmI from "./sections/WhoAmI.tsx";
 
 export function App() {
   return (
-    <div className="grid">
-      <p> hola </p>
+    <div>
+      <WhoAmI></WhoAmI>
     </div>
   );
 }
