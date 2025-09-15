@@ -1,8 +1,21 @@
-export function Countdown(icon, count) {
+import "../styles/countdown.css";
+interface CountdownProps {
+  icon: string;
+  count?: string | number;
+}
+export function Countdown({ icon, count }: CountdownProps) {
   return (
-    <div>
-      <img src={icon} alt="icono countdown" />
-      <span>{count || "696969"}</span>
+    <div className="countdown-container">
+      {" "}
+      <img className="cd-icon" src={icon} alt="icono countdown" />{" "}
+      <div className="cd-numbers">
+        {" "}
+        <span className="cd-numbers">{count || "696969"}</span>{" "}
+        <span className="cd-numbers">{count || "696969"}</span>{" "}
+        <span className="cd-numbers">{count || "696969"}</span>{" "}
+        <span className="cd-numbers">{count || "696969"}</span>{" "}
+        <span className="cd-numbers">{count || "696969"}</span>{" "}
+      </div>{" "}
     </div>
   );
 }

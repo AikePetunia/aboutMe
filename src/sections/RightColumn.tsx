@@ -1,11 +1,10 @@
+import "../styles/rightColumn.css";
 import Profile from "../components/Profile";
-import Biography from "../components/Biography";
 
 export function WhoAmI() {
   return (
-    <div>
+    <div className="div1">
       <Profile />
-      <Biography />
     </div>
   );
 }

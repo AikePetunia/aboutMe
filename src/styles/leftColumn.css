@@ -1,0 +1,57 @@
+/* leftColumn.css */
+.left-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-auto-rows: minmax(120px, auto); /* altura base de las filas */
+  grid-template-areas:
+    "div2 div2 div3 div4 div4 div4"
+    "div5 div5 div5 div6 div6 div6"
+    "div7 div7 div8 div8 div9 div9"
+    "div10 div10 div10 div10 div10 div10";
+}
+
+/* asigná las áreas */
+.div2 {
+  grid-area: div2;
+}
+.div3 {
+  grid-area: div3;
+}
+.div4 {
+  grid-area: div4;
+}
+.div5 {
+  grid-area: div5;
+}
+.div6 {
+  grid-area: div6;
+}
+.div7 {
+  grid-area: div7;
+}
+.div8 {
+  grid-area: div8;
+}
+.div9 {
+  grid-area: div9;
+}
+.div10 {
+  grid-area: div10;
+}
+
+@media (max-width: 900px) {
+  .left-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "div2"
+      "div3"
+      "div4"
+      "div5"
+      "div6"
+      "div7"
+      "div8"
+      "div9"
+      "div10";
+  }
+}

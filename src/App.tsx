@@ -1,10 +1,19 @@
 import "./styles/App.css";
-import WhoAmI from "./sections/WhoAmI.tsx";
-
+import RightColumn from "./sections/RightColumn.tsx";
+import LeftColumn from "./sections/LeftColumn.tsx";
+import Influence from "sections/Influence.tsx";
 export function App() {
   return (
-    <div>
-      <WhoAmI></WhoAmI>
+    <div className="parent-grid">
+      <section className="left">
+        <LeftColumn />
+      </section>
+      <section className="right">
+        <RightColumn />
+      </section>
+      <section className="influence">
+        <Influence />
+      </section>
     </div>
   );
 }
