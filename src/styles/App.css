@@ -22,7 +22,7 @@ body {
 }
 
 /* titles */
-h1, h2, h3 {
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-title);
     color: var(--primary-600);
   font-weight: 600;
