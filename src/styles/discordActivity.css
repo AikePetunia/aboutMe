@@ -55,24 +55,20 @@
   flex-shrink: 0; 
 }
 
-.activity-detail {
+.activity-container {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 5px;
-  margin: 0 40px;
+  margin: 0 35px;
 }
 
 /* emoji positioning, if it exists. */
 .emote {
   position: absolute;
-  bottom: -10px; 
+  bottom: -13px; 
   right: -10px; 
-  z-index: 10; 
-  background-color: rgba(10, 10, 10, 0.9); 
-  border-radius: 50%; 
-  padding: 3px; 
-  border: 2px solid #1DB954; 
+  display: flex;
 }
 
 .emote > img {
@@ -80,6 +76,53 @@
   width: 28px;
   display: block; 
   border-radius: 50%;
+    background-color: rgba(10, 10, 10, 0.9); 
+  border-radius: 50%; 
+  padding: 3px; 
+  border: 2px solid #1DB954; 
+    z-index: 10; 
+}
+
+.status-text-emoji {
+  background-color: rgba(10, 10, 10, 0.9); 
+  border-bottom-left-radius: 12px;
+  border-top-left-radius: 12px;
+  padding: 3px; 
+  border: 2px solid #1DB954; 
+  padding-bottom: 5px;
+  position: absolute;
+  right: 27px;
+  bottom: 2px;
+  z-index: 9;
+  width: fit-content;
+  padding-right: 10px;
+  max-width: 65px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 5px;
+  font-size: 0.8rem;
+  text-align: left;
+}
+
+.status-text-normal {
+ background-color: rgba(10, 10, 10, 0.9);
+  padding: 3px;
+    padding-bottom: 3px;
+    padding-left: 3px;
+  border: 2px solid #1DB954;
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  z-index: 9;
+  width: fit-content;
+  padding-right: 5px;
+  max-width: 98px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 5px;
+  font-size: 0.7rem;
+  text-align: center;
+  border-radius: 12px;
 }
 
 .activity-image {
@@ -89,6 +132,46 @@
   object-fit: cover;
 }
 
+
+/* Transición entre actividades */
+.activity-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+.activity {
+  min-height: 120px; 
+  position: relative;
+}
+
+/* activity text styles */
+.activity-detail {
+  color: white;
+  margin: 0 10px;
+  font-size: 1rem;
+}
+
+.activity-state {
+  color: rgb(173, 173, 173);
+    font-size: 0.9rem;
+}
+
+.activity-time {
+  color:rgb(158, 158, 158);
+  font-size: 0.8rem;
+}
+/* Spotify styles */
 .progress-bar {
     display: flex;
     align-items: center;
@@ -107,4 +190,9 @@
     height: 100%;
     background-color: #1DB954;
     border-radius: 2px;
+}
+
+.spotify-song {
+  color: white;
+  
 }
