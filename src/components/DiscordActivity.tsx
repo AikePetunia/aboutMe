@@ -7,6 +7,8 @@ import {
   formatTimeDisplay,
   formatMusicTime,
 } from "../utils/discordUtils";
+import { Spotify } from "./discordActivity/Spotify";
+import { CustomStatus } from "./discordActivity/CustomStatus";
 
 export function DiscordActivity() {
   const [data, setData] = useState<any | null>(null);
@@ -98,53 +100,10 @@ export function DiscordActivity() {
     obsidian?.assets?.large_image
   );
 
-  const CustomStatus = () => (
-    <>
-      {(emojiUrl || statusText) && (
-        <div className="emote">
-          {statusText && (
-            <p className={`status-text-${emojiUrl ? "emoji" : "normal"}`}>
-              {statusText}
-            </p>
-          )}
-          {emojiUrl && <img src={emojiUrl} alt=""></img>}
-        </div>
-      )}
-    </>
-  );
-
-  const SpotifyInfo = () => (
-    <>
-      <div className="album-container">
-        <a href={`https://open.spotify.com/track/${dsSpotify?.track_id}`}>
-          <img className="activity-image" src={albumArt} alt=""></img>
-        </a>
-        <CustomStatus />
-      </div>
-      <div className="activity-container">
-        <a href={`https://open.spotify.com/track/${dsSpotify?.track_id}`}>
-          <h3 className="activity-detail">{dsSpotify?.song}</h3>
-        </a>
-        <h4 className="activity-state">{dsSpotify?.artist}</h4>
-        <span className="activity-time">
-          {musicTime.current} / {musicTime.total}
-        </span>
-        <div className="progress-bar">
-          <div className="progress-track">
-            <div
-              className="progress-fill"
-              style={{ width: `${musicTime.progress}%` }}
-            ></div>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-
   const codeActivity = () => (
     <>
       {!dsSpotify && code && (
-        <div className="ds-activity code">
+        <div className="ds-activity">
           <img
             className="activity-image"
             src={largeImg || undefined}
@@ -162,7 +121,7 @@ export function DiscordActivity() {
   const obsidianActivity = () => (
     <>
       {!dsSpotify && !code && obsidian && (
-        <div className="ds-activity code">
+        <div className="ds-activity">
           <img
             className="activity-image"
             src={obsidianLogo || undefined}
@@ -182,7 +141,7 @@ export function DiscordActivity() {
     !obsidian && (
       <div className="activity-container">
         <h3 className="activity-detail">No current activity</h3>
-        <CustomStatus />
+        <CustomStatus emojiUrl={emojiUrl} statusText={statusText} />
       </div>
     );
 
@@ -195,7 +154,17 @@ export function DiscordActivity() {
     <div className={`ds-activity ${dsStatus} discord-container`}>
       {dsActivites ? (
         <>
-          <div className="activity">{dsSpotify && <SpotifyInfo />}</div>
+          <div className="activity">
+            {dsSpotify && (
+              <Spotify
+                spotify={dsSpotify}
+                albumArt={albumArt}
+                musicTime={musicTime}
+                emojiUrl={emojiUrl}
+                statusText={statusText}
+              />
+            )}
+          </div>
         </>
       ) : (
         ""
