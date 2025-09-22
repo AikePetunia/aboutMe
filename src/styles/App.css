@@ -90,3 +90,25 @@ a {
   }
   .right{ position: static; }              
 }
+
+/* discordActivity transition */
+.fade-stage {
+  opacity: 1;
+  transition-property: opacity, transform;
+  transition-timing-function: ease;
+  will-change: opacity, transform;
+}
+
+.fade-stage.is-fading-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-stage.is-fading-out {
+  opacity: 0;
+  transform: translateY(4px);
+}
+
+.discord-container {
+  min-height: 96px;
+}

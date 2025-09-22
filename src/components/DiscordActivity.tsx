@@ -1,14 +1,14 @@
 import "../styles/discordActivity.css";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { fetchLanyard } from "../hooks/useLanyard";
-import {
-  resolveActivityImage,
-  resolveEmojiUrl,
-  formatTimeDisplay,
-  formatMusicTime,
-} from "../utils/discordUtils";
+import { resolveEmojiUrl, formatMusicTime } from "../utils/discordUtils";
 import { Spotify } from "./discordActivity/Spotify";
+import { Obsidian } from "./discordActivity/Obsidian";
+import { Code } from "./discordActivity/Code";
 import { CustomStatus } from "./discordActivity/CustomStatus";
+
+type ActivityKind = "spotify" | "code" | "obsidian" | "idle";
+type Pane = { kind: ActivityKind; node: React.ReactNode; key: string };
 
 export function DiscordActivity() {
   const [data, setData] = useState<any | null>(null);
@@ -27,148 +27,170 @@ export function DiscordActivity() {
 
   useEffect(() => {
     fetchData();
-
     const timer = setInterval(() => {
       setTick((prev) => prev + 1);
 
       if (data?.spotify?.timestamps?.end) {
         const now = Date.now();
-        // once start time of the music reaches the end, refetchs
-        if (now > data.spotify.timestamps.end + 3000) {
-          fetchData();
-        }
-
-        // refetching each 30s
-        if (now - lastFetchTime.current > 30000) {
-          fetchData();
-        }
+        // si termino la cancion, refetch
+        if (now > data.spotify.timestamps.end + 3000) fetchData();
+        // si no cada 1min
+        if (now - lastFetchTime.current > 60000) fetchData();
       }
     }, 1000);
-
     return () => clearInterval(timer);
   }, [data?.spotify?.timestamps?.end]);
 
-  if (!data) return <p>Cargando presencia...</p>;
+  const dsStatus = data?.discord_status || "";
+  const dsSpotify = data?.spotify || null;
+  const dsActivities = data?.activities || [];
 
-  // ! General Variables & Helpers
-  interface Activity {
-    name: string;
-    [key: string]: any;
-  }
-
-  interface SpotifyData {
-    [key: string]: any;
-  }
-
-  interface LanyardData {
-    discord_status: string;
-    spotify: SpotifyData | null;
-    data: {
-      activities: Activity[];
-    };
-  }
-
-  const dsStatus = data.discord_status;
-  const dsSpotify = data.spotify || null;
-  const dsActivites = data.activities || [];
-
-  const custom = data.activities.find((a: any) => a.type === 4) || {};
-
+  const custom = dsActivities.find((a: any) => a.type === 4) || {};
   const emojiUrl = custom?.emoji ? resolveEmojiUrl(custom.emoji) : null;
   const statusText = custom?.state || "";
 
-  // ! Visual Studio Code Variables
-  const code = data.activities.find(
-    (a: any) => a.name === "Visual Studio Code"
-  );
-  const appId = code?.application_id;
-  const largeImg = resolveActivityImage(appId, code?.assets?.large_image);
+  const code = dsActivities.find((a: any) => a?.name === "Visual Studio Code");
+  const obsidian = dsActivities.find((a: any) => a?.name === "Obsidian");
 
-  // ! Spotify Variables - Only compute these if dsSpotify exists
   const albumArt = dsSpotify?.album_art_url || "";
   const musicTime = dsSpotify
     ? formatMusicTime(dsSpotify.timestamps?.start, dsSpotify.timestamps?.end)
     : { current: "0:00", total: "0:00", progress: 0 };
 
-  // ! Obsidian Variables
-  const obsidian = dsActivites.find(
-    (activity: Activity) => activity.name === "Obsidian"
-  );
-  const obsidianAppId = obsidian?.application_id;
-  const obsidianLogo = resolveActivityImage(
-    obsidianAppId,
-    obsidian?.assets?.large_image
-  );
+  const panes: Pane[] = useMemo(() => {
+    const list: Pane[] = [];
 
-  const codeActivity = () => (
-    <>
-      {!dsSpotify && code && (
-        <div className="ds-activity">
-          <img
-            className="activity-image"
-            src={largeImg || undefined}
-            alt={code?.details || ""}
+    if (!data) {
+      return [
+        {
+          kind: "idle",
+          key: "loading",
+          node: <p>Cargando presencia...</p>,
+        },
+      ];
+    }
+
+    if (dsSpotify) {
+      list.push({
+        kind: "spotify",
+        key: `spotify:${dsSpotify?.track_id ?? "unknown"}`,
+        node: (
+          <Spotify
+            spotify={dsSpotify}
+            albumArt={albumArt}
+            musicTime={musicTime}
+            emojiUrl={emojiUrl}
+            statusText={statusText}
           />
-          <h3>{code?.details}</h3>
-          <h6>{code?.state}</h6>
-          <h4>{code?.assets?.large_text}</h4>
-          <time>{formatTimeDisplay(code?.timestamps?.start)}</time>
-        </div>
-      )}
-    </>
-  );
+        ),
+      });
+    }
+    if (code && !obsidian) {
+      list.push({
+        kind: "code",
+        key: `code:${code?.application_id ?? "vs"}`,
+        node: <Code activity={code} />,
+      });
+    }
+    if (obsidian && !code) {
+      list.push({
+        kind: "obsidian",
+        key: `obsidian:${obsidian?.application_id ?? "obs"}`,
+        node: <Obsidian activity={obsidian} />,
+      });
+    }
+    if (list.length === 0) {
+      list.push({
+        kind: "idle",
+        key: "idle",
+        node: (
+          <div className="activity-container">
+            <h3 className="activity-detail">Just existing</h3>
+            <CustomStatus emojiUrl={emojiUrl} statusText={statusText} />
+          </div>
+        ),
+      });
+    }
+    return list;
+  }, [
+    data,
+    dsSpotify,
+    albumArt,
+    musicTime,
+    emojiUrl,
+    statusText,
+    code,
+    obsidian,
+  ]);
 
-  const obsidianActivity = () => (
-    <>
-      {!dsSpotify && !code && obsidian && (
-        <div className="ds-activity">
-          <img
-            className="activity-image"
-            src={obsidianLogo || undefined}
-            alt={obsidian?.details || ""}
-          />
-          <h3>{obsidian?.state}</h3>
-          <h6>{obsidian?.details}</h6>
-          <time>{formatTimeDisplay(obsidian?.timestamps?.start)}</time>
-        </div>
-      )}
-    </>
-  );
-
-  const hyperExcepcionalCase = () =>
-    !dsSpotify &&
-    !code &&
-    !obsidian && (
-      <div className="activity-container">
-        <h3 className="activity-detail">No current activity</h3>
-        <CustomStatus emojiUrl={emojiUrl} statusText={statusText} />
+  if (!data) {
+    return (
+      <div className={`discord-container ds-activity ${dsStatus}`}>
+        <ActivityRotator panes={panes} />
       </div>
     );
+  }
 
-  /**
-   * @param (activities) - Componentes to work on transition
-   * @param (timeTransition) {number} - timeouts of transition
-   */
-  function transitionStatus(activities = [], timeTransition = 0) {}
   return (
-    <div className={`ds-activity ${dsStatus} discord-container`}>
-      {dsActivites ? (
-        <>
-          <div className="activity">
-            {dsSpotify && (
-              <Spotify
-                spotify={dsSpotify}
-                albumArt={albumArt}
-                musicTime={musicTime}
-                emojiUrl={emojiUrl}
-                statusText={statusText}
-              />
-            )}
-          </div>
-        </>
-      ) : (
-        ""
-      )}
+    <div className={`discord-container ds-activity ${dsStatus}`}>
+      <ActivityRotator panes={panes} />
+    </div>
+  );
+}
+
+// transitioner
+function ActivityRotator({
+  panes,
+  showMs = 10000, // visible time
+  fadeMs = 500, // fade duration
+}: {
+  panes: Pane[];
+  showMs?: number;
+  fadeMs?: number;
+}) {
+  const [idx, setIdx] = useState(0);
+  const [fading, setFading] = useState<"in" | "out">("in");
+  const timerRef = useRef<number | null>(null);
+
+  // change pane reset
+  useEffect(() => {
+    setIdx(0);
+    setFading("in");
+  }, [panes.map((p) => p.key).join("|")]);
+
+  useEffect(() => {
+    // only use one there is more than one pane
+    if (panes.length <= 1) return;
+
+    const startVisiblePhase = () => {
+      timerRef.current = window.setTimeout(() => {
+        setFading("out");
+        timerRef.current = window.setTimeout(() => {
+          setIdx((i) => (i + 1) % panes.length);
+          setFading("in");
+          startVisiblePhase();
+        }, fadeMs);
+      }, showMs);
+    };
+
+    startVisiblePhase();
+    return () => {
+      if (timerRef.current) window.clearTimeout(timerRef.current);
+      timerRef.current = null;
+    };
+  }, [panes.length, showMs, fadeMs]);
+
+  const current = panes[idx];
+
+  return (
+    <div
+      className={`fade-stage activity ${
+        fading === "out" ? "is-fading-out" : "is-fading-in"
+      }`}
+      style={{ transitionDuration: `${fadeMs}ms` }}
+      key={current.key}
+    >
+      {current.node}
     </div>
   );
 }
