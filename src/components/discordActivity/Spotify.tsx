@@ -34,7 +34,7 @@ export function Spotify({
 }: SpotifyProps) {
   return (
     <>
-      <div className="album-container">
+      <div className="image-container">
         <a href={`https://open.spotify.com/track/${spotify?.track_id || ""}`}>
           <img className="activity-image" src={albumArt} alt=""></img>
         </a>

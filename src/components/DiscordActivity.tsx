@@ -65,7 +65,7 @@ export function DiscordActivity() {
         {
           kind: "idle",
           key: "loading",
-          node: <p>Cargando presencia...</p>,
+          node: <p>wait till the fetch :3</p>,
         },
       ];
     }
@@ -89,14 +89,22 @@ export function DiscordActivity() {
       list.push({
         kind: "code",
         key: `code:${code?.application_id ?? "vs"}`,
-        node: <Code activity={code} />,
+        node: (
+          <Code activity={code} emojiUrl={emojiUrl} statusText={statusText} />
+        ),
       });
     }
     if (obsidian && !code) {
       list.push({
         kind: "obsidian",
         key: `obsidian:${obsidian?.application_id ?? "obs"}`,
-        node: <Obsidian activity={obsidian} />,
+        node: (
+          <Obsidian
+            activity={obsidian}
+            emojiUrl={emojiUrl}
+            statusText={statusText}
+          />
+        ),
       });
     }
     if (list.length === 0) {
@@ -106,7 +114,16 @@ export function DiscordActivity() {
         node: (
           <div className="activity-container">
             <h3 className="activity-detail">Just existing</h3>
-            <CustomStatus emojiUrl={emojiUrl} statusText={statusText} />
+            {(emojiUrl || statusText) && (
+              <div className="emote no">
+                {statusText && (
+                  <p className={`status-text-${emojiUrl ? "emoji" : "normal"}`}>
+                    {statusText}
+                  </p>
+                )}
+                {emojiUrl && <img src={emojiUrl} alt=""></img>}
+              </div>
+            )}
           </div>
         ),
       });
@@ -141,7 +158,7 @@ export function DiscordActivity() {
 // transitioner
 function ActivityRotator({
   panes,
-  showMs = 10000, // visible time
+  showMs = 20000, // visible time
   fadeMs = 500, // fade duration
 }: {
   panes: Pane[];
@@ -183,14 +200,16 @@ function ActivityRotator({
   const current = panes[idx];
 
   return (
-    <div
-      className={`fade-stage activity ${
-        fading === "out" ? "is-fading-out" : "is-fading-in"
-      }`}
-      style={{ transitionDuration: `${fadeMs}ms` }}
-      key={current.key}
-    >
-      {current.node}
+    <div className="activities">
+      <div
+        className={`fade-stage activity ${
+          fading === "out" ? "is-fading-out" : "is-fading-in"
+        }`}
+        style={{ transitionDuration: `${fadeMs}ms` }}
+        key={current.key}
+      >
+        {current.node}
+      </div>
     </div>
   );
 }

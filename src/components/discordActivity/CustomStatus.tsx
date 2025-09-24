@@ -7,7 +7,7 @@ export function CustomStatus({ emojiUrl, statusText }: CustomStatusProps) {
   return (
     <>
       {(emojiUrl || statusText) && (
-        <div className="emote">
+        <div className="emote ">
           {statusText && (
             <p className={`status-text-${emojiUrl ? "emoji" : "normal"}`}>
               {statusText}
