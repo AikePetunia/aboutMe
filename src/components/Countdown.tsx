@@ -1,4 +1,4 @@
-import "../styles/countdown.css";
+import "../styles/rightColumn/countdown.css";
 interface CountdownProps {
   icon: string;
   count?: string | number;

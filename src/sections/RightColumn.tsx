@@ -1,4 +1,4 @@
-import "../styles/rightColumn.css";
+import "../styles/rightColumn/rightColumn.css";
 import Profile from "../components/Profile";
 
 export function WhoAmI() {

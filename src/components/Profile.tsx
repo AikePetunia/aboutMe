@@ -1,9 +1,11 @@
 import meImage from "../assets/me.webp";
 import bdIcon from "../assets/bdIcon.gif";
 import eye from "../assets/eye.gif";
-import "../styles/profile.css";
+import "../styles/rightColumn/profile.css";
 import { Countdown } from "./Countdown";
 import DiscordActivity from "./DiscordActivity";
+import { ShowMedia } from "./profile/showMedia";
+
 export function Profile() {
   return (
     <div>
@@ -17,8 +19,7 @@ export function Profile() {
       </p>
       <h3> Visitors </h3>
       <Countdown icon={eye} count={1} />
-
-      <img src={meImage} className="profile-photo" alt="test"></img>
+      <img src={meImage} className="profile-photo" alt="test" />
       <h3>Time Alive</h3>
       <Countdown icon={bdIcon} count={2} />
       <DiscordActivity />

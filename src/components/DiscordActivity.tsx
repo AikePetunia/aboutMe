@@ -1,11 +1,10 @@
-import "../styles/discordActivity.css";
+import "../styles/rightColumn/discordActivity.css";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { fetchLanyard } from "../hooks/useLanyard";
 import { resolveEmojiUrl, formatMusicTime } from "../utils/discordUtils";
 import { Spotify } from "./discordActivity/Spotify";
 import { Obsidian } from "./discordActivity/Obsidian";
 import { Code } from "./discordActivity/Code";
-import { CustomStatus } from "./discordActivity/CustomStatus";
 
 type ActivityKind = "spotify" | "code" | "obsidian" | "idle";
 type Pane = { kind: ActivityKind; node: React.ReactNode; key: string };
