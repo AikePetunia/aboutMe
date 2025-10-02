@@ -1,3 +1,9 @@
+.photo-media-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
 .profile-photo {
   width: 200px;
   height: 200px;

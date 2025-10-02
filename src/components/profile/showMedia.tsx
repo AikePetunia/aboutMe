@@ -1,38 +1,67 @@
 import "../../styles/rightColumn/showMedia.css";
-import discord from "../../assets/socialMedia/ds.jpg";
-import github from "../../assets/socialMedia/github.svg";
-import spotify from "../../assets/socialMedia/sp.png";
-import steam from "../../assets/socialMedia/steam.png";
+import discord from "../../assets/socialMedia/ds.avif";
+import github from "../../assets/socialMedia/github.avif";
+import spotify from "../../assets/socialMedia/sp.avif";
+import steam from "../../assets/socialMedia/steam.avif";
+import instagram from "../../assets/socialMedia/ig.avif";
 import vrchat from "../../assets/socialMedia/vr.ico";
 
 export function ShowMedia() {
-  /* 
-    https://github.com/AikePetunia
-    https://www.instagram.com/aike.milanesa/
-    https://x.com/AikePetunia
-    https://steamcommunity.com/id/VenusAike/ <- AikeMilanesa
-    https://vrchat.com/home/user/usr_3f89d1bf-7727-439d-ba88-c8d0021ad5ec
-    https://discord.com/users/433637449307127822
-    https://open.spotify.com/user/31hxlonhyxenlnefnn54betpckye?si=a7520c8f25df4b61 
-
-    */
   return (
     <div className="showMediaContainer">
-      <div>
-        <img src={github} alt="GitHub" />
+      <div className="github-media-container">
+        <a
+          href="https://github.com/AikePetunia"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={github} alt="GitHub" />
+        </a>
       </div>
-      <div></div>
-      <div>
-        <img src={discord} alt="Discord" />
+      <div className="instagram-media-container">
+        <a
+          href="https://www.instagram.com/aike.milanesa/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={instagram} alt="Instagram" />
+        </a>
       </div>
-      <div>
-        <img src={steam} alt="Steam" />
+      <div className="discord-media-container">
+        <a
+          href="https://discord.com/users/433637449307127822"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={discord} alt="Discord" />
+        </a>
       </div>
-      <div>
-        <img src={vrchat} alt="VRChat" />
+      <div className="steam-media-container">
+        <a
+          href="https://steamcommunity.com/id/VenusAike/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={steam} alt="Steam" />
+        </a>
       </div>
-      <div>
-        <img src={spotify} alt="Spotify" />
+      <div className="vrchat-media-container">
+        <a
+          href="https://vrchat.com/home/user/usr_3f89d1bf-7727-439d-ba88-c8d0021ad5ec"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={vrchat} alt="VRChat" />
+        </a>
+      </div>
+      <div className="spotify-media-container">
+        <a
+          href="https://open.spotify.com/user/31hxlonhyxenlnefnn54betpckye?si=a7520c8f25df4b61"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={spotify} alt="Spotify" />
+        </a>
       </div>
     </div>
   );

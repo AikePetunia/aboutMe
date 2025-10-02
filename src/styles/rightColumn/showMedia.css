@@ -1,3 +1,37 @@
 .showMediaContainer {
   display: block;
+  position: relative;
+}
+
+.showMediaContainer img {
+  width: 32px;
+  height: 32px;
+  margin: 0 5px;
+  border-radius: 50%;
+}
+
+.github-media-container{
+  position: relative;
+  left: 100px;
+  top: -10px;
+}
+.instagram-media-container{
+  position: relative;
+  left: 140px;
+}
+.discord-media-container{
+  position: relative;
+  left: 180px;
+}
+.steam-media-container{
+  position: relative;
+  left: 220px;
+}
+.vrchat-media-container{
+  position: relative;
+  left: 260px;
+}
+.spotify-media-container{
+  position: relative;
+  left: 300px;
 }

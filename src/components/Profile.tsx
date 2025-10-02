@@ -19,7 +19,10 @@ export function Profile() {
       </p>
       <h3> Visitors </h3>
       <Countdown icon={eye} count={1} />
-      <img src={meImage} className="profile-photo" alt="test" />
+      <div className="photo-media-container">
+        <img src={meImage} className="profile-photo" alt="test" />
+        <ShowMedia />
+      </div>
       <h3>Time Alive</h3>
       <Countdown icon={bdIcon} count={2} />
       <DiscordActivity />
