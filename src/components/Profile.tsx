@@ -20,7 +20,20 @@ export function Profile() {
       <h3> Visitors </h3>
       <Countdown icon={eye} count={1} />
       <div className="photo-media-container">
-        <img src={meImage} className="profile-photo" alt="test" />
+        <div className="profile-photo">
+          <img src={meImage} alt="test" />
+          <div className="spider-body">
+            <div className="spider-leg1"> </div>
+            <div className="spider-leg2"> </div>
+            <div className="spider-leg3"> </div>
+            <div className="spider-leg4"> </div>
+            <div className="spider-head"> </div>
+            <div className="spider-leg5"> </div>
+            <div className="spider-leg6"> </div>
+            <div className="spider-leg7"> </div>
+            <div className="spider-leg8"> </div>
+          </div>
+        </div>
         <ShowMedia />
       </div>
       <h3>Time Alive</h3>

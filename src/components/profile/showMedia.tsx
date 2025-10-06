@@ -5,6 +5,7 @@ import spotify from "../../assets/socialMedia/sp.avif";
 import steam from "../../assets/socialMedia/steam.avif";
 import instagram from "../../assets/socialMedia/ig.avif";
 import vrchat from "../../assets/socialMedia/vr.ico";
+import twitter from "../../assets/socialMedia/x.avif";
 
 export function ShowMedia() {
   return (
@@ -63,8 +64,17 @@ export function ShowMedia() {
           <img src={spotify} alt="Spotify" />
         </a>
       </div>
+      <div className="twitter-media-container">
+        <a
+          href="https://x.com/AikePetunia"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={twitter} alt="Twitter" />
+        </a>
+      </div>
     </div>
   );
 }
 
-// export default ShowMedia;
+export default ShowMedia;
