@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import "../../styles/rightColumn/showMedia.css";
 import discord from "../../assets/socialMedia/ds.avif";
 import github from "../../assets/socialMedia/github.avif";
@@ -7,9 +8,9 @@ import instagram from "../../assets/socialMedia/ig.avif";
 import vrchat from "../../assets/socialMedia/vr.ico";
 import twitter from "../../assets/socialMedia/x.avif";
 
-export function ShowMedia() {
+export const ShowMedia = forwardRef<HTMLDivElement>((props, ref) => {
   return (
-    <div className="showMediaContainer">
+    <div className="showMediaContainer" ref={ref}>
       <div className="github-media-container">
         <a
           href="https://github.com/AikePetunia"
@@ -75,6 +76,6 @@ export function ShowMedia() {
       </div>
     </div>
   );
-}
+});
 
 export default ShowMedia;

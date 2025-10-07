@@ -1,12 +1,14 @@
+@import "./showMedia.css";
+
 .photo-media-container {
   display: flex;
   justify-content: center;
-  margin: 20px 0;
+  padding-top: 30px;
+  margin-bottom: -10px;
   position: relative;
 }
 
 .profile-photo {
-  margin-left: 60px;
   width: 200px;
   height: 200px;
   border-radius: 50%;
@@ -29,7 +31,7 @@
   left: -20px;
   right: -20px;
   bottom: -20px;
-  border: 2px solid var(--glow-weak);
+  border: 3px solid var(--glow-weak);
   border-radius: 50%;
   animation: pulse-ring 2s ease-out infinite 1s;
   opacity: 0;
@@ -41,7 +43,7 @@
     opacity: 1;
   }
   100% {
-    transform: scale(1);
+    transform: scale(1.1);
     opacity: 0;
   }
 }

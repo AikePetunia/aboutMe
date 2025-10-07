@@ -1,6 +1,11 @@
 .showMediaContainer {
   display: block;
   position: relative;
+  width: 0;
+}
+
+.showMediaContainer.show {
+  display: block;
 }
 
 .showMediaContainer img {
@@ -14,6 +19,14 @@
   position: relative;
   display: inline-block;
   border-radius: 50%;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.showMediaContainer.show a {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .showMediaContainer a::before {
@@ -58,42 +71,74 @@
 }
 
 .showMediaContainer a:hover::before {
-  animation: rotate-border 1s linear infinite;
+  animation: rotate-border 10s linear infinite;
 }
 
-.github-media-container{
+.github-media-container {
   position: relative;
   left: -240px;
   top: -7px;
 }
-.instagram-media-container{
+
+.github-media-container a {
+  transition-delay: 0.1s;
+}
+
+.instagram-media-container {
   position: relative;
   left: -270px;
-  top: 31px
+  top: 31px;
 }
-.discord-media-container{
+
+.instagram-media-container a {
+  transition-delay: 0.2s;
+}
+
+.discord-media-container {
   position: relative;
   left: -240px;
-  top: 83px
+  top: 83px;
 }
-.twitter-media-container{
+
+.discord-media-container a {
+  transition-delay: 0.3s;
+}
+
+.twitter-media-container {
   position: relative;
   left: -120px;
-  top: -20px
+  top: -20px;
 }
-.vrchat-media-container{
+
+.twitter-media-container a {
+  transition-delay: 0.4s;
+}
+
+.spotify-media-container {
   position: relative;
-  left: 0px;
-  top: -170px
+  top: -40px;
 }
-.steam-media-container{
+
+.spotify-media-container a {
+  transition-delay: 0.5s;
+}
+
+.steam-media-container {
   position: relative;
   left: 20px;
   top: -50px;
 }
 
-.spotify-media-container{
-  position: relative;
-  top: -40px
+.steam-media-container a {
+  transition-delay: 0.6s;
 }
 
+.vrchat-media-container {
+  position: relative;
+  left: 0px;
+  top: -170px;
+}
+
+.vrchat-media-container a {
+  transition-delay: 0.7s;
+}

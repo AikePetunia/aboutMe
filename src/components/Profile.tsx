@@ -5,8 +5,29 @@ import "../styles/rightColumn/profile.css";
 import { Countdown } from "./Countdown";
 import DiscordActivity from "./DiscordActivity";
 import { ShowMedia } from "./profile/showMedia";
+import { useEffect, useState, useRef } from "react";
 
 export function Profile() {
+  const [isShown, setIsShown] = useState(false);
+  const mediaContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (mediaContainerRef.current) {
+      if (isShown) {
+        mediaContainerRef.current.style.display = "block";
+        void mediaContainerRef.current.offsetHeight;
+        mediaContainerRef.current.classList.add("show");
+      } else {
+        mediaContainerRef.current.classList.remove("show");
+        setTimeout(() => {
+          if (mediaContainerRef.current && !isShown) {
+            mediaContainerRef.current.classList.add("hide");
+          }
+        }, 200);
+      }
+    }
+  }, [isShown]);
+
   return (
     <div>
       <h1 className="ascii-name"> Aike </h1>
@@ -20,7 +41,7 @@ export function Profile() {
       <h3> Visitors </h3>
       <Countdown icon={eye} count={1} />
       <div className="photo-media-container">
-        <div className="profile-photo">
+        <div className="profile-photo" onClick={() => setIsShown(!isShown)}>
           <img src={meImage} alt="test" />
           <div className="spider-body">
             <div className="spider-leg1"> </div>
@@ -34,7 +55,7 @@ export function Profile() {
             <div className="spider-leg8"> </div>
           </div>
         </div>
-        <ShowMedia />
+        <ShowMedia ref={mediaContainerRef} />
       </div>
       <h3>Time Alive</h3>
       <Countdown icon={bdIcon} count={2} />

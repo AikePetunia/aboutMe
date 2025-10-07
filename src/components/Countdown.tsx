@@ -4,6 +4,17 @@ interface CountdownProps {
   count?: string | number;
 }
 export function Countdown({ icon, count }: CountdownProps) {
+  // gets de % of the year passed since last birthday
+  const now = new Date();
+
+  const lastBirthday = new Date(now.getFullYear(), 1, 21);
+  const nextBirthday = new Date(now.getFullYear() + 1, 1, 21);
+
+  const fraction =
+    (now.getTime() - lastBirthday.getTime()) /
+    (nextBirthday.getTime() - lastBirthday.getTime());
+
+  console.log("%", fraction * 100);
   return (
     <div className="countdown-container">
       {" "}
