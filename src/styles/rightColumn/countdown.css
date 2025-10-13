@@ -1,21 +1,20 @@
 .countdown-container {
   display: flex;
   align-items: center;
-  gap: 0.55rem;
+  gap: 0.25rem;
   background: var(--bg);
   padding: 0.3rem 0.5rem;
   border-radius: 6px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  margin-right: 10px;
   border: 1px solid var(--glow-weak);
   opacity: 0.8;
   width: fit-content;
-  margin: 5px auto 10px auto;
+  margin: 5px auto 16px auto;
 }
 
 .cd-icon {
-  width: 32px;
-  height: 32px;
+width: 36px;
+  height: 36px;
   border-radius: 50%;
   object-fit: contain;
   filter: drop-shadow(0 0 6px var(--glow-weak));
@@ -37,4 +36,15 @@
   box-shadow: 0 0 6px var(--glow-weak) inset, 0 0 8px rgba(0, 0, 0, 0.6);
   min-width: fit-contents;
   text-align: center;
+}
+
+.cd-digit {
+  transition: transform 0.2s ease, color 0.2s ease;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.cd-digit.digit-changing {
+  transform: scale(1.05);
+  color: var(--primary);
 }

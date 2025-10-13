@@ -5,9 +5,7 @@ import Influence from "sections/Influence.tsx";
 export function App() {
   return (
     <div className="parent-grid">
-      <section className="left">
-        <LeftColumn />
-      </section>
+      <section className="left">{/* <LeftColumn /> */}</section>
       <section className="right">
         <RightColumn />
       </section>

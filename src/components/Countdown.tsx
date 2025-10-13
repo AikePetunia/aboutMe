@@ -8,6 +8,7 @@ export function Countdown({ icon, count }: { icon: string; count: string }) {
     const currentDigits = String(count).split("");
     const prevDigits = prevCountRef.current.split("");
 
+    // checks diffs between current and previous digits
     currentDigits.forEach((digit, index) => {
       if (prevDigits[index] !== digit) {
         const digitElement = document.querySelector(
@@ -31,15 +32,13 @@ export function Countdown({ icon, count }: { icon: string; count: string }) {
   return (
     <div className="countdown-container">
       <img className="cd-icon" src={icon} alt="icono countdown" />
-      <div className="cd-numbers">
-        {String(count)
-          .split("")
-          .map((digit, index) => (
-            <span key={index} className="cd-digit">
-              {digit}
-            </span>
-          ))}
-      </div>
+      {String(count)
+        .split("")
+        .map((digit, index) => (
+          <span key={index} className="cd-digit">
+            {digit}
+          </span>
+        ))}
     </div>
   );
 }

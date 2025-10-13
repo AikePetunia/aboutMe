@@ -1,5 +1,30 @@
 @import "./showMedia.css";
 
+.name-container {
+  display: flex;
+  justify-content: center;
+}
+
+.my-icon {
+  width: 40px;
+  height: 40px;
+  margin-top:33px;
+  margin-left: 5px;
+}
+.my-name {
+  font-family: var(--font-sans);
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  font-weight: 200;
+  margin-bottom: 10px;
+}
+.my-pronouns {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: rgb(116, 116, 116);
+}
 .photo-media-container {
   display: flex;
   justify-content: center;

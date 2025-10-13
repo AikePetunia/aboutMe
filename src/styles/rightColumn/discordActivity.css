@@ -8,8 +8,10 @@ border-radius: 6px;
   padding: 12px 15px;
   background-color: rgba(10, 10, 10, 0.9);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-  margin-left: 60px;
-  margin-right: 60px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 50px;
+
 }
 
 /* status code */

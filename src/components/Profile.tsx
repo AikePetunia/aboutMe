@@ -31,7 +31,6 @@ export function Profile() {
 
   // js date is weird
   // gets de % of the year passed since last birthday
-
   useEffect(() => {
     function updateTimeAlive() {
       const now = new Date();
@@ -46,20 +45,20 @@ export function Profile() {
 
       setTotalTimeAlive(newTotalTimeAlive);
     }
-
-    // Update immediately
     updateTimeAlive();
 
-    // Update every 100ms for smooth animation
-    const interval = setInterval(updateTimeAlive, 100);
+    const interval = setInterval(updateTimeAlive, 250);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div>
-      <h1 className="ascii-name"> Aike </h1>
-      <p>
+      <div className="name-container">
+        <h1 className="my-name"> Aike </h1>
+        <img src={eye} alt="eye" className="my-icon"></img>
+      </div>
+      <p className="my-pronouns">
         She/Her/Ella
         <br></br>
         <a href="https://nikableh.moe/"> 🏳️‍⚧️ </a>
@@ -84,7 +83,6 @@ export function Profile() {
         </div>
         <ShowMedia ref={mediaContainerRef} />
       </div>
-      <h3>Time Alive</h3>
       <Countdown icon={bdIcon} count={totalTimeAlive} />
       <DiscordActivity />
     </div>
