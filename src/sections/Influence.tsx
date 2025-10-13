@@ -1,6 +1,5 @@
 import "../styles/influence.css";
 import { PeopleCard } from "../components/PeopleCard.tsx";
-
 export function Influence() {
   return (
     <>
