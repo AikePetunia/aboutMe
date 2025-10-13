@@ -1,0 +1,20 @@
+.lovedPeople-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .lovedPeople-container {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .lovedPeople-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}

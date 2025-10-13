@@ -1,10 +1,17 @@
-import nah from "../assets/nah.gif";
+import "../styles/influence.css";
+import { PeopleCard } from "../components/PeopleCard.tsx";
+
 export function Influence() {
   return (
-    <div style={{ position: "relative", textAlign: "center" }}>
-      <p> NO!! IT'S NOT FINISHED YET !! I HAVE A LIFE AND OTHER THINGS</p>
-      <img src={nah} alt="Loading..." />
-    </div>
+    <>
+      <h1> my loved ones </h1>
+      <div className="lovedPeople-container">
+        <PeopleCard />
+        <PeopleCard />
+        <PeopleCard />
+        <PeopleCard />
+      </div>
+    </>
   );
 }
 

@@ -168,11 +168,14 @@ function ActivityRotator({
   const [fading, setFading] = useState<"in" | "out">("in");
   const timerRef = useRef<number | null>(null);
 
-  // change pane reset
+  // reset
   useEffect(() => {
     setIdx(0);
     setFading("in");
   }, [panes.map((p) => p.key).join("|")]);
+
+  const safeIdx = Math.min(idx, panes.length - 1);
+  const current = panes[safeIdx] || panes[0];
 
   useEffect(() => {
     // only use one there is more than one pane
@@ -196,7 +199,16 @@ function ActivityRotator({
     };
   }, [panes.length, showMs, fadeMs]);
 
-  const current = panes[idx];
+  // Add safety check for current
+  if (!current) {
+    return (
+      <div className="activities">
+        <div className="fade-stage activity">
+          <p>wait till fetches :3</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="activities">

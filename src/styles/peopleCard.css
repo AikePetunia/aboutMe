@@ -1,0 +1,97 @@
+.person-container {
+    border-radius: 16px;
+    width: 200px;
+    height: 180px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    gap:16px;
+}
+
+.person-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(59, 1, 1, 0.25);
+    border-radius: 16px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(232, 232, 232, 0.1);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(232, 232, 232, 0.05);
+    z-index: -1;
+}
+
+.person-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(255, 42, 42, 0.05) 0%, 
+        transparent 50%, 
+        rgba(255, 42, 42, 0.02) 100%);
+    border-radius: 16px;
+    z-index: -1;
+}
+
+.person-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 40%;
+}
+
+.name-container > img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; 
+    padding-top: 2px;
+}
+
+.name-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.name-container > h3 {
+    color: var(--text);
+    margin: 0;
+}
+
+.name-container > h5 {
+    color: var(--muted);
+    margin: 0;
+}
+
+/* it's not being aligend with anything !!! tehee*/
+.person-social-media > a {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 16px;
+    margin-left: 26px;
+    
+}
+
+.person-social-image {
+    display: flex;
+    gap: 10px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+}
+
