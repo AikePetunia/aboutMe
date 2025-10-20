@@ -3,11 +3,8 @@ import { PeopleCard } from "../components/PeopleCard.tsx";
 export function Influence() {
   return (
     <>
-      <h1> my loved ones </h1>
+      <h1 className="loved-people">my loved ones &lt;3</h1>
       <div className="lovedPeople-container">
-        <PeopleCard />
-        <PeopleCard />
-        <PeopleCard />
         <PeopleCard />
       </div>
     </>

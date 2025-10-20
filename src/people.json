@@ -1,8 +1,18 @@
 {
-  "picture": ".avif",
-  "name": "nombre genial",
-  "emoji": "🫶",
-  "whatSocial": "twitter, instagram, etc",
-  "socialTag": "@nombregenial2",
-  "socialLink": "https://twitter.com/nombregenial2"
+  "person": [
+    {
+      "picture": "https://pbs.twimg.com/profile_images/1979656130826530816/iOpPac4E_400x400.jpg",
+      "name": "spike",
+      "emoji": "✧",
+      "whatSocial": "x",
+      "socialTag": "@Spikecandado"
+    },
+    {
+      "picture": "https://images.everyeye.it/img-screenshot/jujutsu-kaisen-v1-908570-640.webp",
+      "name": "asuky",
+      "emoji": "💀",
+      "whatSocial": "",
+      "socialTag": ""
+    }
+  ]
 }

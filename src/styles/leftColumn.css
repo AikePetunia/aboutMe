@@ -3,15 +3,15 @@
   display: grid;
   gap: 12px;
   grid-template-columns: repeat(6, minmax(0, 1fr));
-  grid-auto-rows: minmax(120px, auto); /* altura base de las filas */
+  grid-auto-rows: minmax(184px, auto); 
   grid-template-areas:
     "div2 div2 div3 div4 div4 div4"
     "div5 div5 div5 div6 div6 div6"
     "div7 div7 div8 div8 div9 div9"
     "div10 div10 div10 div10 div10 div10";
+    border: 1px solid #d9d9d9;
 }
 
-/* asigná las áreas */
 .div2 {
   grid-area: div2;
 }

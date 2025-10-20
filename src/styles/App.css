@@ -74,7 +74,6 @@ a {
 .influence { grid-area: influence; }
 
 .right{
-  position: sticky;
   top: 16px;
   align-self: start;   
 }
