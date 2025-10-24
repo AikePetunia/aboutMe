@@ -1,0 +1,7 @@
+.div1 {
+  display: grid;
+  grid-area: 1 / 4 / 6 / 6;
+  text-align: center;
+  border: 1px solid #d9d9d9; /* debug */
+  margin-right: 2px;
+}
