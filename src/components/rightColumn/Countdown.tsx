@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import "../styles/rightColumn/countdown.css";
+import "../../styles/rightColumn/countdown.css";
 
 export function Countdown({ icon, count }: { icon: string; count: string }) {
   const prevCountRef = useRef<string>("");

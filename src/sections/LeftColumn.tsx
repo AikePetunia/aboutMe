@@ -1,42 +1,39 @@
 // sections/LeftColumn.tsx
 import "../styles/leftColumn.css";
-
+import { AboutMe } from "../components/leftColumn/aboutMe/AboutMe";
+import { Github } from "../components/leftColumn/Github";
+import { Vrchat } from "../components/leftColumn/Vrchat";
+import { CurrentlyPlaying } from "../components/leftColumn/CurrentlyPlaying";
+import { CountryData } from "../components/leftColumn/CountryData";
+import { LetterBox } from "../components/leftColumn/LetterBox";
+import { Spotify } from "../components/leftColumn/Spotify";
+import { Anime } from "../components/leftColumn/Anime";
 export default function LeftColumn() {
   return (
     <div className="left-grid">
-      <div className="div2">
-        <p>Setup !! + stack + who am i</p>
+      <div className="about-me-grid">
+        <AboutMe />
       </div>
-      <div className="div3">
-        <p>dias de la facu !?</p>
-        <iframe
-          src="https://x.com/AikePetunia/status/1778249487170916379"
-          title="Tweet by AikePetunia"
-          width="100%"
-          height="100%"
-          style={{ border: "none", overflow: "hidden" }}
-        ></iframe>
+      <div className="github-grid">
+        <Github />
       </div>
-      <div className="div4">
-        <p>mis juegos !! (detales de recientes jugados en ds)</p>
+      <div className="vrchat-grid">
+        <Vrchat />
       </div>
-      <div className="div5">
-        <p>spotify con mis escuchados?! artistas?!</p>
+      <div className="curr-playing-grid">
+        <CurrentlyPlaying />
       </div>
-      <div className="div6">
-        <p>MyAnimeList</p>
+      <div className="country-data-grid">
+        <CountryData />
       </div>
-      <div className="div7">
-        <p>vrchat gallery </p>
+      <div className="letterbox-grid">
+        <LetterBox />
       </div>
-      <div className="div8">
-        <p>NGL link para mensajes??</p>
+      <div className="spotify-grid">
+        <Spotify />
       </div>
-      <div className="div9">
-        <p>que hago con vos</p>
-      </div>
-      <div className="div10">
-        <p> y vos ??</p>
+      <div className="anime-grid">
+        <Anime />
       </div>
     </div>
   );

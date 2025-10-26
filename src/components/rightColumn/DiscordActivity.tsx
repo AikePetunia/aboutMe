@@ -1,7 +1,7 @@
-import "../styles/rightColumn/discordActivity.css";
+import "../../styles/rightColumn/discordActivity.css";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { fetchLanyard } from "../hooks/useLanyard";
-import { resolveEmojiUrl, formatMusicTime } from "../utils/discordUtils";
+import { fetchLanyard } from "../../hooks/useLanyard";
+import { resolveEmojiUrl, formatMusicTime } from "../../utils/discordUtils";
 import { Spotify } from "./discordActivity/Spotify";
 import { Obsidian } from "./discordActivity/Obsidian";
 import { Code } from "./discordActivity/Code";
@@ -10,6 +10,7 @@ type ActivityKind = "spotify" | "code" | "obsidian" | "idle";
 type Pane = { kind: ActivityKind; node: React.ReactNode; key: string };
 
 export function DiscordActivity() {
+  // ! quiza algo copado es agregar la imagen del icono de fondo tmb, en vez de un negro estatico feo
   const [data, setData] = useState<any | null>(null);
   const [tick, setTick] = useState(0);
   const lastFetchTime = useRef<number>(Date.now());

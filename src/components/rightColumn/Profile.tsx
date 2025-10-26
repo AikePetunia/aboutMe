@@ -1,10 +1,10 @@
-import meImage from "../assets/me.webp";
-import bdIcon from "../assets/bdIcon.gif";
-import eye from "../assets/eye.gif";
-import "../styles/rightColumn/profile.css";
+import meImage from "../../assets/me.webp";
+import bdIcon from "../../assets/bdIcon.gif";
+import eye from "../../assets/eye.gif";
+import "../../styles/rightColumn/profile.css";
 import { Countdown } from "./Countdown";
 import DiscordActivity from "./DiscordActivity";
-import { ShowMedia } from "./profile/showMedia";
+import { ShowMedia } from "./showMedia";
 import { useEffect, useState, useRef } from "react";
 
 export function Profile() {
