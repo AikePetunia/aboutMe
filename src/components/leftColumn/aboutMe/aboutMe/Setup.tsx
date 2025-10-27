@@ -16,6 +16,8 @@ export function Setup() {
         <ul>Keyboard: HyperX Alloy Origins 100% custom keycaps</ul>
         <ul>Mouse: Aquila Air</ul>
         <ul>Headset: Redragon Zeus X Wireless</ul>
+        <ul>VR stuff: Oculus Quest 2 128gb</ul>
+        <ul>Tracking: slimevr bno x2, bmi160 x4</ul>
       </li>
     </>
   );

@@ -8,7 +8,7 @@
 }
 
 .left-grid > div {
-  padding: 8px;
+  padding: 12px;
   background: rgba(59, 1, 1, 0.25);
   border-radius: 16px;
   backdrop-filter: blur(4px);
