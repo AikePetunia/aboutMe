@@ -7,7 +7,7 @@ export function Stack() {
         <h4>Skills</h4>
         <div className="skills-icons">
           <img
-            src="https://skillicons.dev/icons?i=html,css,bootstrap,javascript,react,haskell,c,python,nodejs"
+            src="https://skillicons.dev/icons?i=html,css,bootstrap,javascript,react"
             alt="Skills"
           />
           <img
@@ -22,6 +22,10 @@ export function Stack() {
             width="48"
             height="48"
           />
+          <img
+            src="https://skillicons.dev/icons?i=haskell,c,python,nodejs"
+            alt="Skills"
+          />
         </div>
       </div>
 
@@ -29,7 +33,7 @@ export function Stack() {
         <h4>Frameworks & Other stuff</h4>
         <div className="skills-icons">
           <img
-            src="https://skillicons.dev/icons?i=git,github,obsidian,debian,vscode,pycharm,sklearn,md,linux"
+            src="https://skillicons.dev/icons?i=git,github,obsidian,debian,vscode,pycharm,sklearn"
             alt="Frameworks"
           />
           <img
@@ -45,7 +49,7 @@ export function Stack() {
             height="48"
           />
           <img
-            src="https://skillicons.dev/icons?i=instagram,gmail,discord,twitter"
+            src="https://skillicons.dev/icons?i=md,linux,instagram,gmail,discord,twitter"
             alt="Social"
           />
         </div>
@@ -55,8 +59,15 @@ export function Stack() {
         <h4>Skills I want to learn</h4>
         <div className="skills-icons">
           <img
-            src="https://skillicons.dev/icons?i=figma,vue,postgres,java,maven,spring,sass,jenkins,aws,cloudflare,docker,unity"
+            src="https://skillicons.dev/icons?i=figma,vue,postgres,java,maven,spring,sass,"
             alt="Future skills"
+          />
+          <img
+            src="
+          https://skillicons.dev/icons?i=jenkins,aws,cloudflare,docker,unity,ts
+
+"
+            alt=""
           />
         </div>
       </div>

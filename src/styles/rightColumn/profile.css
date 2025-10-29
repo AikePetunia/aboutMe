@@ -21,11 +21,7 @@
   font-weight: 200;
   margin-bottom: 10px;
 }
-.my-pronouns {
-  font-family: var(--font-sans);
-  font-size: 0.9rem;
-  color: rgb(116, 116, 116);
-}
+
 .photo-media-container {
   display: flex;
   justify-content: center;

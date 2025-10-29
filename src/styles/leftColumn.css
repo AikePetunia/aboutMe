@@ -16,7 +16,6 @@
   border: 1px solid rgba(232, 232, 232, 0.1);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
     inset 0 1px 0 rgba(232, 232, 232, 0.05);
-  z-index: -1;
 }
 
 .left-grid .vrchat-grid { grid-area: 4 / 1 / 5 / 3; }
@@ -43,4 +42,28 @@
   .left-grid .anime-grid {
     grid-area: auto;
   }
+}
+
+.about-me-grid {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-me-grid::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 32px;
+  right: 0;
+  bottom: 0;
+  height: calc(100% - 150px);
+  width: calc(100% - 24px);
+  background-image: url("../components/leftColumn/aboutMe/setup-test.webp");
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px); 
+  z-index: -1;
+  opacity: 0.6;
 }

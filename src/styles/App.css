@@ -68,6 +68,7 @@ a {
   grid-template-areas:
     "left  right"
     "influence right";
+    padding: 6px;
 }
 
 .left      { grid-area: left; }
@@ -112,3 +113,26 @@ a {
 .discord-container {
   min-height: 96px;
 }
+
+
+/* Scrollbar minimalista */
+* {
+  scrollbar-color: var(--glow-strong) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.5);
+} 

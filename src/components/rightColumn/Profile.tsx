@@ -58,13 +58,6 @@ export function Profile() {
         <h1 className="my-name"> Aike </h1>
         <img src={eye} alt="eye" className="my-icon"></img>
       </div>
-      <p className="my-pronouns">
-        She/Her/Ella
-        <br></br>
-        <a href="https://nikableh.moe/"> 🏳️‍⚧️ </a>
-        <br></br>
-        ESP/ENG
-      </p>
       {/* <h3> Visitors </h3>, <Countdown icon={eye} count={1} /> sad...*/}
       <div className="photo-media-container">
         <div className="profile-photo" onClick={() => setIsShown(!isShown)}>

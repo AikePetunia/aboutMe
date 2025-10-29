@@ -3,7 +3,7 @@ export function Setup() {
     <>
       <h3>Setup</h3>
       {/* poner imagen blureada del setup)? */}
-      <li>
+      <li className="setup-list">
         <ul>Monitor1: Valkyrie 27″ Qhd 2k 200hz 1ms Ips</ul>
         <ul>Monitor2: Samsung 22″ FHD 75Hz</ul>
         <ul>Case: Corsair 4000D Frame Black </ul>

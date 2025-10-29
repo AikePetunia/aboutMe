@@ -8,6 +8,7 @@ import { CountryData } from "../components/leftColumn/CountryData";
 import { LetterBox } from "../components/leftColumn/LetterBox";
 import { Spotify } from "../components/leftColumn/Spotify";
 import { Anime } from "../components/leftColumn/Anime";
+  
 export default function LeftColumn() {
   return (
     <div className="left-grid">
