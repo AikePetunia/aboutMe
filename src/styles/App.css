@@ -56,17 +56,19 @@ a {
   text-decoration: none;
   color: inherit;
   -webkit-tap-highlight-color: transparent; 
+  cursor: pointer;
 }
+
 
 /* grids */
 .parent-grid{
   display:grid;
-  gap: 16px;
   grid-template-columns: 1.8fr 1fr;       
   grid-template-rows: auto 1fr;          
   grid-template-areas:
     "left  right"
     "influence right";
+    padding: 6px;
 }
 
 .left      { grid-area: left; }
@@ -111,3 +113,26 @@ a {
 .discord-container {
   min-height: 96px;
 }
+
+
+/* Scrollbar minimalista */
+* {
+  scrollbar-color: var(--glow-strong) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.5);
+} 

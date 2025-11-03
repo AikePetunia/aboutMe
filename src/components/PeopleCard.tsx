@@ -30,7 +30,7 @@ export function PeopleCard() {
                 alt={person.name}
               />
               <div className="person-text">
-                <div className="name-container">
+                <div className="loved-name-container">
                   {person.emoji ? (
                     <p className="person-emoji">{person.emoji}</p>
                   ) : (

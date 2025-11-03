@@ -1,10 +1,10 @@
-import meImage from "../assets/me.webp";
-import bdIcon from "../assets/bdIcon.gif";
-import eye from "../assets/eye.gif";
-import "../styles/rightColumn/profile.css";
+import meImage from "../../assets/me.webp";
+import bdIcon from "../../assets/bdIcon.gif";
+import eye from "../../assets/eye.gif";
+import "../../styles/rightColumn/profile.css";
 import { Countdown } from "./Countdown";
 import DiscordActivity from "./DiscordActivity";
-import { ShowMedia } from "./profile/showMedia";
+import { ShowMedia } from "./showMedia";
 import { useEffect, useState, useRef } from "react";
 
 export function Profile() {
@@ -58,13 +58,6 @@ export function Profile() {
         <h1 className="my-name"> Aike </h1>
         <img src={eye} alt="eye" className="my-icon"></img>
       </div>
-      <p className="my-pronouns">
-        She/Her/Ella
-        <br></br>
-        <a href="https://nikableh.moe/"> 🏳️‍⚧️ </a>
-        <br></br>
-        ESP/ENG
-      </p>
       {/* <h3> Visitors </h3>, <Countdown icon={eye} count={1} /> sad...*/}
       <div className="photo-media-container">
         <div className="profile-photo" onClick={() => setIsShown(!isShown)}>

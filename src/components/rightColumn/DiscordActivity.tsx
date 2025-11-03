@@ -1,15 +1,17 @@
-import "../styles/rightColumn/discordActivity.css";
+import "../../styles/rightColumn/discordActivity.css";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { fetchLanyard } from "../hooks/useLanyard";
-import { resolveEmojiUrl, formatMusicTime } from "../utils/discordUtils";
+import { fetchLanyard } from "../../hooks/useLanyard";
+import { resolveEmojiUrl, formatMusicTime } from "../../utils/discordUtils";
 import { Spotify } from "./discordActivity/Spotify";
 import { Obsidian } from "./discordActivity/Obsidian";
 import { Code } from "./discordActivity/Code";
+import { useActivityRotator } from "../../hooks/useActivityRotator";
 
 type ActivityKind = "spotify" | "code" | "obsidian" | "idle";
 type Pane = { kind: ActivityKind; node: React.ReactNode; key: string };
 
 export function DiscordActivity() {
+  // ! quiza algo copado es agregar la imagen del icono de fondo tmb, en vez de un negro estatico feo
   const [data, setData] = useState<any | null>(null);
   const [tick, setTick] = useState(0);
   const lastFetchTime = useRef<number>(Date.now());
@@ -155,60 +157,13 @@ export function DiscordActivity() {
 }
 
 // transitioner
-function ActivityRotator({
-  panes,
-  showMs = 20000, // visible time
-  fadeMs = 500, // fade duration
-}: {
-  panes: Pane[];
-  showMs?: number;
-  fadeMs?: number;
-}) {
-  const [idx, setIdx] = useState(0);
-  const [fading, setFading] = useState<"in" | "out">("in");
-  const timerRef = useRef<number | null>(null);
-
-  // reset
-  useEffect(() => {
-    setIdx(0);
-    setFading("in");
-  }, [panes.map((p) => p.key).join("|")]);
-
-  const safeIdx = Math.min(idx, panes.length - 1);
-  const current = panes[safeIdx] || panes[0];
-
-  useEffect(() => {
-    // only use one there is more than one pane
-    if (panes.length <= 1) return;
-
-    const startVisiblePhase = () => {
-      timerRef.current = window.setTimeout(() => {
-        setFading("out");
-        timerRef.current = window.setTimeout(() => {
-          setIdx((i) => (i + 1) % panes.length);
-          setFading("in");
-          startVisiblePhase();
-        }, fadeMs);
-      }, showMs);
-    };
-
-    startVisiblePhase();
-    return () => {
-      if (timerRef.current) window.clearTimeout(timerRef.current);
-      timerRef.current = null;
-    };
-  }, [panes.length, showMs, fadeMs]);
-
-  // Add safety check for current
-  if (!current) {
-    return (
-      <div className="activities">
-        <div className="fade-stage activity">
-          <p>wait till fetches :3</p>
-        </div>
-      </div>
-    );
-  }
+// ActivityRotator component moved to useActivityRotator hook
+function ActivityRotator({ panes }: { panes: Pane[] }) {
+  const { currentPane, fading, transitionMs } = useActivityRotator({
+    panes,
+    showMs: 20000,
+    fadeMs: 500,
+  });
 
   return (
     <div className="activities">
@@ -216,10 +171,9 @@ function ActivityRotator({
         className={`fade-stage activity ${
           fading === "out" ? "is-fading-out" : "is-fading-in"
         }`}
-        style={{ transitionDuration: `${fadeMs}ms` }}
-        key={current.key}
+        style={{ transitionDuration: `${transitionMs}ms` }}
       >
-        {current.node}
+        {currentPane?.node}
       </div>
     </div>
   );
