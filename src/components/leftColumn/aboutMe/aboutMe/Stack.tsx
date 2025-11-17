@@ -1,7 +1,50 @@
+import { useState, useEffect } from "react";
+import imageSrc from "../stack.png";
+import React from "react";
 export function Stack() {
+  const [isVisible, setIsVisible] = React.useState(false);
+  const [coords, setCoords] = React.useState({ x: 0, y: 0 });
+
+  // fix: desaparecer la imagen al mover el ratón fuera del área
+  useEffect(() => {
+    const handleMouseMove = (event: MouseEvent) => {
+      setCoords({ x: event.clientX, y: event.clientY });
+      setIsVisible();
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
   return (
     <>
+      {isVisible && (
+        <img
+          src={imageSrc}
+          alt="archbtw"
+          style={{
+            position: "absolute",
+            top: coords.y + 1,
+            left: coords.x + 1,
+            pointerEvents: "none",
+            width: "350px",
+            height: "225px",
+            borderRadius: "8px",
+            transition: "transform 0.1s ease-out",
+          }}
+        />
+      )}
       <h3>My Stack</h3>
+      <p
+        style={{ fontSize: "12px" }}
+        onMouseEnter={() => setIsVisible(true)}
+        onMouseLeave={() => setIsVisible(false)}
+      >
+        arch btw
+      </p>
 
       <div className="stack-section">
         <h4>Skills</h4>

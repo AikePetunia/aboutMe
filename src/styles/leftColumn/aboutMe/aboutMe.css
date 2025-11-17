@@ -52,7 +52,7 @@
 
 .left-button:hover .arrow,
 .right-button:hover .arrow {
-  fill: #ff4757; /* color on hover */
+  fill: #ff4757; 
 }
 
 .left-button, .right-button {

@@ -1,5 +1,5 @@
 import { useActivityRotator } from "../../../hooks/useActivityRotator.ts";
-import { useMemo, useRef, useEffect } from "react";
+import { useMemo, useRef, useEffect, useState } from "react";
 import { Stack } from "./aboutMe/Stack.tsx";
 import { Setup } from "./aboutMe/Setup.tsx";
 import { WhoAmI } from "./aboutMe/WhoAmI.tsx";
@@ -12,35 +12,33 @@ type Pane = {
   node: React.ReactNode;
   key: string;
   idx?: number;
+  setIdx?: React.Dispatch<React.SetStateAction<number>>;
 };
 
 export function AboutMe() {
+  const [newIndex, setNewIndex] = useState<number>(0);
   const panes: Pane[] = useMemo(() => {
     const list: Pane[] = [];
     list.push({
       kind: "setup",
       key: "about-me-setup",
       node: <Setup />,
-      idx: 1,
     });
     list.push({
       kind: "stack",
       key: "about-me-stack",
       node: <Stack />,
-      idx: 2,
     });
     list.push({
       kind: "whoami",
       key: "about-me-whoami",
       node: <WhoAmI />,
-      idx: 3,
     });
     return list;
   }, []);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   const handleButtons = (direction: "left" | "right") => {
-    let newIndex = 0;
     const currentIndex = panes.findIndex(
       (pane) =>
         pane.key ===
@@ -49,16 +47,23 @@ export function AboutMe() {
           ?.getAttribute("data-key")
     );
     if (direction === "left") {
-      newIndex = (currentIndex - 1 + panes.length) % panes.length;
+      setNewIndex((currentIndex - 1 + panes.length) % panes.length);
     } else {
-      newIndex = (currentIndex + 1) % panes.length;
+      setNewIndex((currentIndex + 1) % panes.length);
     }
+    return newIndex;
   };
+
   return (
     <>
       <div className="about-me-container" ref={containerRef}>
-        <ActivityRotator panes={panes} containerRef={containerRef} />
-        {/* the truth is that this arrows it's replicated per grid */}
+        {/* arrows are replicated per grid */}
+        <ActivityRotator
+          panes={panes}
+          idx={newIndex}
+          setIdx={setNewIndex}
+          containerRef={containerRef}
+        />
         <div className="buttons-container">
           <div className="next-indicator"></div>
           <button className="left-button" onClick={() => handleButtons("left")}>
@@ -93,16 +98,23 @@ export function AboutMe() {
 function ActivityRotator({
   panes,
   containerRef,
+  idx,
+  setIdx,
 }: {
   panes: Pane[];
   containerRef: React.RefObject<HTMLDivElement>;
+  idx?: number;
+  setIdx?: React.Dispatch<React.SetStateAction<number>>;
 }) {
   const { currentPane, fading, transitionMs } = useActivityRotator({
     panes,
-    showMs: 100000,
+    idx,
+    setIdx,
+    showMs: 5000,
     fadeMs: 500,
   });
 
+  // diff images based on current pane
   useEffect(() => {
     const wrapper = containerRef.current?.closest(".about-me-grid");
     if (!wrapper) return;
@@ -110,7 +122,13 @@ function ActivityRotator({
     const isSetup = currentPane?.kind === "setup";
     wrapper.classList.toggle("setup-active", isSetup);
 
-    return () => wrapper.classList.remove("setup-active");
+    const isStack = currentPane?.kind === "stack";
+    wrapper.classList.toggle("stack-active", isStack);
+
+    return () => {
+      wrapper.classList.remove("setup-active");
+      wrapper.classList.remove("stack-active");
+    };
   }, [currentPane?.kind]);
   return (
     <div

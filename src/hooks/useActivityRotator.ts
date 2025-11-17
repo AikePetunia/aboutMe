@@ -7,24 +7,28 @@ export type Pane = {
 
 export function useActivityRotator({
   panes,
+  idx,
+  setIdx,
   showMs = 20000, // visible time
   fadeMs = 500, // fade duration
 }: {
   panes: Pane[];
+  idx?: number;
+  setIdx?: React.Dispatch<React.SetStateAction<number>>;
   showMs?: number;
   fadeMs?: number;
 }) {
-  const [idx, setIdx] = useState(0);
   const [fading, setFading] = useState<"in" | "out">("in");
   const timerRef = useRef<number | null>(null);
 
   // reset
   useEffect(() => {
-    setIdx(0);
+    setIdx?.(0);
     setFading("in");
   }, [panes.map((p) => p.key).join("|")]);
 
-  const safeIdx = Math.min(idx, panes.length - 1);
+  const effectiveIdx = typeof idx === "number" ? idx : 0;
+  const safeIdx = Math.min(effectiveIdx, panes.length);
   const current = panes[safeIdx] || panes[0];
 
   useEffect(() => {
@@ -52,7 +56,8 @@ export function useActivityRotator({
   return {
     currentPane: current,
     fading,
-    index: safeIdx,
+    setIdx,
+    idx: safeIdx,
     transitionMs: fadeMs,
   };
 }
