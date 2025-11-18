@@ -1,0 +1,82 @@
+.about-me-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+  overflow-y: auto; 
+  overflow-x: hidden;
+  max-height: calc(100% - 30px); 
+  overscroll-behavior: contain;
+  width: calc(100% - 24px);
+}
+
+
+.my-pronouns {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: rgb(116, 116, 116);
+}
+
+/*
+.next-indicator {
+  width: 24px;
+  height: 24px;
+  background-color: transparent; 
+  border: 3px solid var(--glow-strong); 
+  border-radius: 50%;
+  position: absolute;
+  left: -30px;
+  bottom: 4px;
+  transition: 15s
+}
+*/
+
+
+
+.buttons-container {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  display: flex;
+}
+
+.left-button, .right-button {
+  background: none;
+  border-radius: 50%;
+  padding: 8px;
+  border: none;
+}
+
+.arrow {
+  fill: var(--glow-strong); 
+  transition: fill 0.2s ease;
+}
+
+.arrow.left {
+  transform: rotate(180deg);
+}
+
+.left-button:hover .arrow,
+.right-button:hover .arrow {
+  fill: #ff4757; 
+}
+
+.left-button, .right-button {
+  background: none;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  padding: 3px;
+}
+
+.left-button:hover, .right-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* setyup styles */
+
+.setup-list > ul {
+  padding: 0px 0px 0px 8px;
+  margin: 8px 0 0 8px
+}

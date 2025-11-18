@@ -1,10 +1,10 @@
-import { useActivityRotator } from "../../../hooks/useActivityRotator.ts";
+import { useRotator } from "../../../hooks/useRotator.ts";
 import { useMemo, useRef, useEffect, useState } from "react";
-import { Stack } from "./aboutMe/Stack.tsx";
-import { Setup } from "./aboutMe/Setup.tsx";
-import { WhoAmI } from "./aboutMe/WhoAmI.tsx";
+import { Stack } from "./Stack.tsx";
+import { Setup } from "./Setup.tsx";
+import { WhoAmI } from "./WhoAmI.tsx";
 
-import "../../../styles/leftColumn/aboutMe/aboutMe.css";
+import "./aboutMe.css";
 
 type aboutMeKind = "setup" | "stack" | "whoami";
 type Pane = {
@@ -39,33 +39,26 @@ export function AboutMe() {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   const handleButtons = (direction: "left" | "right") => {
-    const currentIndex = panes.findIndex(
-      (pane) =>
-        pane.key ===
-        containerRef.current
-          ?.querySelector(".fade-stage > div")
-          ?.getAttribute("data-key")
-    );
-    if (direction === "left") {
-      setNewIndex((currentIndex - 1 + panes.length) % panes.length);
-    } else {
-      setNewIndex((currentIndex + 1) % panes.length);
-    }
-    return newIndex;
+    setNewIndex((prev) => {
+      if (direction === "left") {
+        return (prev - 1 + panes.length) % panes.length;
+      }
+      return (prev + 1) % panes.length;
+    });
   };
 
   return (
     <>
       <div className="about-me-container" ref={containerRef}>
         {/* arrows are replicated per grid */}
-        <ActivityRotator
+        <Rotator
           panes={panes}
           idx={newIndex}
           setIdx={setNewIndex}
           containerRef={containerRef}
         />
         <div className="buttons-container">
-          <div className="next-indicator"></div>
+          {/* <div className="next-indicator"></div> */}
           <button className="left-button" onClick={() => handleButtons("left")}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -95,7 +88,7 @@ export function AboutMe() {
   );
 }
 
-function ActivityRotator({
+function Rotator({
   panes,
   containerRef,
   idx,
@@ -106,11 +99,11 @@ function ActivityRotator({
   idx?: number;
   setIdx?: React.Dispatch<React.SetStateAction<number>>;
 }) {
-  const { currentPane, fading, transitionMs } = useActivityRotator({
+  const { currentPane, fading, transitionMs } = useRotator({
     panes,
     idx,
     setIdx,
-    showMs: 5000,
+    showMs: 20000,
     fadeMs: 500,
   });
 
