@@ -1,0 +1,27 @@
+.letterbox-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.letterbox-button {
+  background-color: var(--glow-weak);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition-duration: 0.4s;
+}
+.letterbox-button:hover {
+  background-color: var(--glow-strong);
+}

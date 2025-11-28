@@ -1,5 +1,8 @@
 .vr-pic {
-  max-width: 21vw;
-  border-radius: 8px;
-  margin: 0px auto;
+  object-fit: cover;
+  width: 20vw;
+  height: 15vw;
+  border-radius: 8px ;
+  display: block;
+  margin: 0 auto;
 }

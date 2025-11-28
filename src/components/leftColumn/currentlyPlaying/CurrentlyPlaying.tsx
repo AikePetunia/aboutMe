@@ -1,4 +1,9 @@
+import { fetchSteam } from "../../../hooks/useSteam";
+
 export function CurrentlyPlaying() {
+  fetchSteam().then((data) => {
+    console.log(data);
+  });
   return (
     <>
       {" "}

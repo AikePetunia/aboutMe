@@ -3,9 +3,15 @@ import vr1 from "./pics/vr1.png";
 import vr2 from "./pics/vr2.png";
 import vr3 from "./pics/vr3.png";
 
+import vr4 from "./pics/vr4.png";
+import vr5 from "./pics/vr5.png";
+import vr6 from "./pics/vr6.png";
+import vr7 from "./pics/vr7.png";
+import vr8 from "./pics/vr8.png";
+
 import { useRotator } from "../../../hooks/useRotator.ts";
 import { useMemo, useRef, useState } from "react";
-
+import "./vrchat.css";
 type Pane = {
   key: string;
   node: React.ReactNode;
@@ -27,6 +33,27 @@ export function Vrchat() {
       key: "vr3",
       node: <img className="vr-pic" src={vr3} alt="#"></img>,
     });
+    list.push({
+      key: "vr4",
+      node: <img className="vr-pic" src={vr4} alt="#"></img>,
+    });
+    list.push({
+      key: "vr5",
+      node: <img className="vr-pic" src={vr5} alt="#"></img>,
+    });
+    list.push({
+      key: "vr5",
+      node: <img className="vr-pic" src={vr5} alt="#"></img>,
+    });
+    list.push({
+      key: "vr6",
+      node: <img className="vr-pic" src={vr6} alt="#"></img>,
+    });
+    list.push({
+      key: "vr7",
+      node: <img className="vr-pic" src={vr8} alt="#"></img>,
+    });
+
     return list;
   });
 
