@@ -52,11 +52,10 @@ code, pre {
 }
 
 a {
-  outline: none;
-  text-decoration: none;
-  color: inherit;
+  outline-color: inherit;
   -webkit-tap-highlight-color: transparent; 
   cursor: pointer;
+    font-family: var(--font-mono);
 }
 
 

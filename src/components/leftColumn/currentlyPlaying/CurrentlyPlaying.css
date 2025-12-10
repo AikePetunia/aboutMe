@@ -1,0 +1,50 @@
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.game-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 95px;
+  width: 95px;
+}
+
+.game-icon {
+  filter: blur(8px);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  z-index: -1;
+  border-radius: 16px;
+}
+
+.game-info-container {
+  position: relative;
+  color: white;
+  text-align: center;
+  z-index: 1;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.game-info-container a {
+  color: var(--primary-400);
+  text-decoration: none;
+}
+
+.game-info-container a:hover {
+  text-decoration: underline;
+}
+
+.game-info-container p {
+  margin: 3px 0 0 0;
+  font-size: 0.8em;
+}
