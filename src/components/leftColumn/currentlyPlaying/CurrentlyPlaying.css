@@ -1,13 +1,13 @@
 .games-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(95px, 1fr));
+  grid-template-rows: repeat(2, 95px);
   grid-column-gap: 10px;
   grid-row-gap: 10px;
+  grid-auto-flow: column;
   overflow-y: hidden;
   overflow-x: auto;
 }
-
 .game-card {
   position: relative;
   display: flex;

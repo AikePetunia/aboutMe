@@ -4,8 +4,6 @@ import fetch from "node-fetch";
 const router = Router();
 const ENDPOINT =
   "https://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/";
-  // GET https://partner.steam-api.com/IPlayerService/GetSteamLevel/v1/
- //GetPlayerSummaries 
 router.get("/recent", async (_req, res) => {
   const steamKey = process.env.STEAM_API_KEY;
   const steamId = process.env.STEAM_ID;

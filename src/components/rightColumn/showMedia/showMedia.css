@@ -21,7 +21,7 @@
   border-radius: 50%;
   opacity: 0;
   transform: scale(0);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 1s ease, transform 1s ease;
 }
 
 .showMediaContainer.show a {
@@ -81,7 +81,7 @@
 }
 
 .github-media-container a {
-  transition-delay: 0.1s;
+  transition-delay: 0.2s;
 }
 
 .instagram-media-container {
