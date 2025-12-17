@@ -1,0 +1,40 @@
+.weather-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.weather-location {
+  background: linear-gradient(
+    90deg,
+    rgba(155, 42, 42, 1) 0%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(83, 137, 237, 1) 100%
+  );
+}
+
+.temp-celcius {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.celcius {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.temp-fahrenheit {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.fahrenheit {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.weather-time {
+  justify-content: end;
+}
