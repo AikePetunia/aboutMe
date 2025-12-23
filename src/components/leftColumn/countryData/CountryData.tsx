@@ -17,27 +17,32 @@ export function CountryData() {
   function formatTime(weatherTime) {
     return weatherTime.slice(11, 16);
   }
-  console.log("Weather data:", weather);
   return (
     <>
       {weather ? (
-        <div>
+        <div className="weather-card">
           <div className="weather-title">
-            <h4>Weather on my city</h4>
+            <h5>Weather on my city</h5>
             <p className="weather-location">Cordoba, Argentina </p>
           </div>
           <div className="weather-temp-container">
-            <span className="temp-celcius">{weather.temperature_2m}</span>
-            <span className="celcius">°C</span>
-            <span className="temp-fahrenheit">
-              {((weather.temperature_2m * 9) / 5 + 32).toFixed(1)}
-            </span>
-            <span className="fahrenheit">°F</span>
+            <div>
+              <span className="temp-celcius">{weather.temperature_2m}</span>
+              <span className="celcius">°C</span>
+            </div>
+            <div>
+              <span className="temp-fahrenheit">
+                {((weather.temperature_2m * 9) / 5 + 32).toFixed(1)}
+              </span>
+              <span className="fahrenheit">°F</span>
+            </div>
           </div>
           <p className="weather-humidity">
             Humidity: {weather.relative_humidity_2m}%
           </p>
-          <p className="weather-time">{formatTime(weather.time)}</p>
+          <div className="weather-condition">
+            <p className="weather-time">{formatTime(weather.time)}</p>
+          </div>
         </div>
       ) : (
         <p>wait till fetches :3</p>

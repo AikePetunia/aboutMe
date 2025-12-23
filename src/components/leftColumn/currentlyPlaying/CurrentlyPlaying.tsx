@@ -8,7 +8,6 @@ export function CurrentlyPlaying() {
     fetchSteam()
       .then((data) => {
         setSteamData(data);
-        console.log("Fetched Steam data:", data);
       })
       .catch((error) => {
         console.error("Error fetching Steam data:", error);

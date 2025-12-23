@@ -1,3 +1,10 @@
+.weather-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  height: 100%;
+}
+
 .weather-title {
   font-size: 1.2rem;
   font-weight: 600;
@@ -11,6 +18,16 @@
     rgba(255, 255, 255, 1) 50%,
     rgba(83, 137, 237, 1) 100%
   );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: 500;
+}
+
+.weather-temp-container {
+  display: flex;
+  align-items: end;
+  gap: 2rem;
 }
 
 .temp-celcius {
@@ -25,16 +42,28 @@
 }
 
 .temp-fahrenheit {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: var(--primary);
 }
 
 .fahrenheit {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 700;
 }
 
+.weather-humidity {
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.weather-condition {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+}
+
 .weather-time {
-  justify-content: end;
+  font-size: 1.2rem;
+  font-weight: 700;
 }
