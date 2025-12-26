@@ -29,3 +29,14 @@ export type SteamGame = {
   playtimeHours: number;
   icon: string;
 };
+
+export type SpotifyPlaylist = {
+  id: string;
+  name: string;
+  public: boolean | null;
+  url?: string;
+  imageUrl?: string;
+  totalTracks?: number;
+  ownerName?: string;
+  ownerId?: string;
+};
