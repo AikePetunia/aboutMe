@@ -15,7 +15,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "baseUrl": "src",
-    "throwIfNamespace": false,
     "paths": {
       "@public/*": ["src/*"],
       "@hooks/*": ["hooks/*"],
