@@ -19,6 +19,7 @@ app.use((_, res, next) => {
 });
 
 app.use("/api/steam", steamRouter);
+// app.use("/api/spotify", spotifyRouter); // next time, use public data, not private.
 app.get("/", (_, res) => res.json({ ok: true }));
 
 app.listen(port, () => {
