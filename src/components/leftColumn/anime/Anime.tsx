@@ -12,7 +12,6 @@ export function Anime() {
     <div className="anime-list">
       {animes.map((item) => (
         <div key={item.node.id} className="anime-item">
-          {/* Imagen */}
           {item.node.main_picture?.large && (
             <img
               src={item.node.main_picture.large}

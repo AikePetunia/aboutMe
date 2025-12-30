@@ -1,6 +1,6 @@
 import React from "react";
 import { fetchSteam } from "../../../hooks/useSteam";
-import "./CurrentlyPlaying.css";
+import "./steam.css";
 export function CurrentlyPlaying() {
   const [steamData, setSteamData] = React.useState(null);
 

@@ -33,10 +33,10 @@
 .left-grid .letterbox-grid {
   grid-area: 3 / 4 / 4 / 5;
 }
-.left-grid .spotify-grid {
+.left-grid .wakatime-grid {
   grid-area: 3 / 5 / 4 / 6;
 }
-.left-grid .github-grid {
+.left-grid .spotify-grid {
   grid-area: 1 / 4 / 2 / 6;
 }
 .left-grid .anime-grid {
@@ -53,8 +53,8 @@
   .left-grid .country-data-grid,
   .left-grid .about-me-grid,
   .left-grid .letterbox-grid,
+  .left-grid .wakatime-grid,
   .left-grid .spotify-grid,
-  .left-grid .github-grid,
   .left-grid .anime-grid {
     grid-area: auto;
   }

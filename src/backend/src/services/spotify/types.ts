@@ -17,9 +17,17 @@ export type SpotifyPlaylist = {
   };
 };
 
-export async function fetchSpotifyPlaylists() {
-  const response = await fetch(`http://localhost:4000/api/spotify/playlists`);
-  const data = await response.json();
-  console.log("Spotify response:", data); // Debug
-  return data as { playlists: SpotifyPlaylist[]; total: number };
-}
+export type SpotifyPlaylistsResponse = {
+  items: SpotifyPlaylist[];
+  total: number;
+  limit: number;
+  offset: number;
+};
+
+export type SpotifyTokenResponse = {
+  access_token: string;
+  token_type: string;
+  expires_in: number;
+  refresh_token?: string;
+  scope: string;
+};

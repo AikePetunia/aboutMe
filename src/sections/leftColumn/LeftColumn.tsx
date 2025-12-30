@@ -1,22 +1,22 @@
 // sections/LeftColumn.tsx
 import "./leftColumn.css";
 import { AboutMe } from "../../components/leftColumn/aboutMe/AboutMe";
-import { Github } from "../../components/leftColumn/github/Github";
+import { Spotify } from "../../components/leftColumn/Spotify/Spotify";
 import { Vrchat } from "../../components/leftColumn/vrchat/Vrchat";
-import { CurrentlyPlaying } from "../../components/leftColumn/currentlyPlaying/CurrentlyPlaying";
+import { CurrentlyPlaying } from "../../components/leftColumn/Steam/Steam";
 import { CountryData } from "../../components/leftColumn/countryData/CountryData";
-import { LetterBox } from "../../components/leftColumn/letterbox/LetterBox";
-import { Spotify } from "../../components/leftColumn/spotify/Spotify";
-import { Anime } from "../../components/leftColumn/anime/Anime";
-  
+import { LetterBox } from "../../components/leftColumn/Letterbox/LetterBox";
+import { Wakatime } from "../../components/leftColumn/Wakatime/Wakatime";
+import { Anime } from "../../components/leftColumn/Anime/Anime";
+
 export default function LeftColumn() {
   return (
     <div className="left-grid">
       <div className="about-me-grid">
         <AboutMe />
       </div>
-      <div className="github-grid">
-        <Github />
+      <div className="spotify-grid">
+        <Spotify />
       </div>
       <div className="vrchat-grid">
         <Vrchat />
@@ -30,8 +30,8 @@ export default function LeftColumn() {
       <div className="letterbox-grid">
         <LetterBox />
       </div>
-      <div className="spotify-grid">
-        <Spotify />
+      <div className="wakatime-grid">
+        <Wakatime />
       </div>
       <div className="anime-grid">
         <Anime />
