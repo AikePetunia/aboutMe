@@ -2,7 +2,7 @@ export function Spotify() {
   return (
     <>
       {" "}
-      <p>spotify</p>
+      <p>Podria poner lo de wakatime y no otra cosa</p>
     </>
   );
 }

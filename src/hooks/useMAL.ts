@@ -1,40 +1,46 @@
-export async function fetchMalCompletedByScore(): Promise<MalCompletedByScoreDto> {
-  const base = getApiBase();
-  const res = await fetch(`${base}/api/mal/completed-by-score`);
-  const text = await res.text();
+export type MALAnimeItem = {
+  node: {
+    id: number;
+    title: string;
+    main_picture?: {
+      medium: string;
+      large: string;
+    };
+    alternative_titles?: {
+      en?: string;
+      ja?: string;
+    };
+    mean?: number; // puntuación promedio de MAL
+    num_episodes?: number;
+    status?: string;
+    genres?: Array<{ id: number; name: string }>;
+    media_type?: string; // tv, movie, ova, etc.
+  };
+  list_status?: {
+    status: string; // watching, completed, etc.
+    score: number; // TU puntuación (0-10)
+    num_episodes_watched?: number;
+    is_rewatching?: boolean;
+    start_date?: string;
+    finish_date?: string;
+    tags?: string[];
+    comments?: string;
+  };
+};
 
-  let payload: any;
-  try {
-    payload = text ? JSON.parse(text) : null;
-  } catch {
-    throw new Error(
-      `no-JSON Response. HTTP ${res.status}. Body: ${text.slice(0, 300)}`
-    );
-  }
+export type MALAnimeResponse = {
+  data?: MALAnimeItem[];
+  paging?: {
+    next?: string;
+    previous?: string;
+  };
+};
 
-  if (!res.ok) {
-    throw new Error(`HTTP ${res.status}: ${text.slice(0, 300)}`);
-  }
-
-  // si tu backend devuelve { ok: true, anime, manga }
-  if (payload?.ok === true) {
-    return { anime: payload.anime ?? [], manga: payload.manga ?? [] };
-  }
-
-  // si devuelve { ok:false, error: ... }
-  if (payload?.ok === false) {
-    throw new Error(String(payload.error ?? "MAL request failed"));
-  }
-
-  // fallback si devuelve directo {anime, manga}
-  if (payload?.anime && payload?.manga)
-    return payload as MalCompletedByScoreDto;
-
-  throw new Error("Unexpected MAL response shape");
-}
-function getApiBase() {
-  return typeof window !== "undefined" &&
-    window.location.hostname === "localhost"
-    ? "http://localhost:4000"
-    : "";
+export async function fetchAnimes(status: string = "completed") {
+  const response = await fetch(
+    `http://localhost:4000/api/mal/user/anime?status=${status}`
+  );
+  const data = await response.json();
+  if (!response.ok) throw new Error(data?.error || "Error al obtener animes");
+  return data as MALAnimeResponse;
 }

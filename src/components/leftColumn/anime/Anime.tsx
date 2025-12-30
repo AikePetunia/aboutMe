@@ -1,44 +1,38 @@
-import React from "react";
-import { fetchMalCompletedByScore } from "../../../hooks/useMAL";
+import { useEffect, useState } from "react";
+import { fetchAnimes, MALAnimeItem } from "../../../hooks/useMAL";
 
 export function Anime() {
-  const [data, setData] = React.useState<{ anime: any[]; manga: any[] } | null>(
-    null
-  );
-  const [error, setError] = React.useState<string | null>(null);
+  const [animes, setAnimes] = useState<MALAnimeItem[]>([]);
 
-  React.useEffect(() => {
-    fetchMalCompletedByScore()
-      .then(setData)
-      .catch((e) => setError(e?.message ?? "Error"));
+  useEffect(() => {
+    fetchAnimes().then((data) => setAnimes(data.data || []));
   }, []);
 
-  if (error) return <p>MAL error: {error}</p>;
-  if (!data) return <p>Cargando MAL…</p>;
-
   return (
-    <div style={{ display: "flex", gap: 24 }}>
-      <div>
-        <h3>Anime (completed) por score</h3>
-        <ol>
-          {data.anime.slice(0, 10).map((x) => (
-            <li key={x.id}>
-              {x.title} — {x.score}
-            </li>
-          ))}
-        </ol>
-      </div>
+    <div className="anime-list">
+      {animes.map((item) => (
+        <div key={item.node.id} className="anime-item">
+          {/* Imagen */}
+          {item.node.main_picture?.large && (
+            <img
+              src={item.node.main_picture.large}
+              alt={item.node.title}
+              style={{ width: 120, height: 180, objectFit: "cover" }}
+            />
+          )}
 
-      <div>
-        <h3>Manga (completed) por score</h3>
-        <ol>
-          {data.manga.slice(0, 10).map((x) => (
-            <li key={x.id}>
-              {x.title} — {x.score}
-            </li>
-          ))}
-        </ol>
-      </div>
+          <div>
+            <h4>{item.node.title}</h4>
+            {item.list_status?.score && <p> {item.list_status.score}/10</p>}
+            {item.node.mean && <p> {item.node.mean}/10</p>}
+            {item.node.num_episodes && <p>{item.node.num_episodes}</p>}
+            {item.list_status?.status && <p> {item.list_status.status}</p>}
+            {item.node.genres && (
+              <p>{item.node.genres.map((g) => g.name).join(", ")}</p>
+            )}
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
