@@ -19,3 +19,9 @@ export function App() {
 }
 
 export default App;
+
+/*
+hi aike ! 
+https://vmfunc.re/
+estaria bueno q agregues ese tipo de botones de communitys :eyes:
+*/
