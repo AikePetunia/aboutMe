@@ -1,0 +1,6 @@
+.wakatime-badges {
+  display: flex;
+  overflow: auto;
+  justify-content: center;
+  gap: 1rem;
+}

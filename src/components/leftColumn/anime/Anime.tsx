@@ -10,18 +10,17 @@ export function Anime() {
 
   return (
     <>
+      <h3>Animes & Mangas that I've seen</h3>
       <div className="animes-grid">
         {animes.map((item) => (
           <div key={item.node.id} className="anime-item">
-            {item.node.main_picture?.large && (
-              <img
-                src={item.node.main_picture.large}
-                alt={item.node.title}
-                style={{ width: 120, height: 180, objectFit: "cover" }}
-              />
-            )}
-
-            <div>
+              {item.node.main_picture?.large && (
+                <img
+                  src={item.node.main_picture.large}
+                  alt={item.node.title}
+                />
+              )}
+            <div className="anime-info">
               <h4>{item.node.title}</h4>
               {item.list_status?.score && <p> {item.list_status.score}/10</p>}
               {item.node.mean && <p> {item.node.mean}/10</p>}

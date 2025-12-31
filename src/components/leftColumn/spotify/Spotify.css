@@ -1,19 +1,46 @@
 .playlists-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(95px, 1fr));
-  grid-template-rows: repeat(2, 95px);
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
-  grid-auto-flow: column;
-  overflow-y: hidden;
-  overflow-x: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+      overflow-y: hidden;
+    overflow-x: auto;
+  width: 100%;
 }
 
 .playlist-item {
-  position: relative;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 95px;
-  width: 95px;
+  flex-direction: row;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  align-items: flex-start;
 }
+
+.playlist-item img {
+  flex-shrink: 0;
+  width: 100px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.playlist-info {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.playlist-info h4 {
+  margin: 0 0 8px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.playlist-info p {
+  margin: 4px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+    white-space: nowrap;
+
+} 

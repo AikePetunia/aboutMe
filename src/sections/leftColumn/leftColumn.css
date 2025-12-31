@@ -4,7 +4,7 @@
   grid-template-rows: 1fr 1fr 1fr 1.5fr;
   grid-column-gap: 12px;
   grid-row-gap: 12px;
-  height: 77vh;
+  height: 99vh;
 }
 
 .left-grid > div {
