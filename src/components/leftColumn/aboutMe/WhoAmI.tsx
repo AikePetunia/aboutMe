@@ -1,4 +1,5 @@
 import peak from "./peak.jpeg";
+import archLinux from "./archlinux.gif";
 export function WhoAmI() {
   return (
     <>
@@ -18,6 +19,8 @@ export function WhoAmI() {
         <a
           href="https://github.com/AikePetunia/Famaf"
           style={{ color: "gray", margin: "0 4px" }}
+          target="_blank"
+          rel="noreferrer"
         >
           FAMAF
         </a>
@@ -25,8 +28,9 @@ export function WhoAmI() {
         <a
           href="https://inverte.com/"
           style={{ color: "green", margin: "0 2px" }}
+          target="_blank"
+          rel="noreferrer"
         >
-          {" "}
           Inverte
         </a>{" "}
         as a front-end/WebGL developer, and dabbling in data analysis
@@ -40,6 +44,12 @@ export function WhoAmI() {
         style={{ display: "block", margin: "20px auto" }}
         alt="Im at my peak"
       />
+      {/* 
+        https://silly.city/ 
+      <a href="https://archlinux.org">
+        <img src={archLinux} title="i use arch btw"></img>
+      </a>
+      */}
     </>
   );
 }

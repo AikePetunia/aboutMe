@@ -1,0 +1,19 @@
+.animes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(95px, 1fr));
+  grid-template-rows: repeat(2, 95px);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  grid-auto-flow: column;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.anime-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 95px;
+  width: 95px;
+}

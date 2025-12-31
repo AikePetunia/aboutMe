@@ -2,7 +2,6 @@ import "./vrchat.css";
 import vr1 from "./pics/vr1.png";
 import vr2 from "./pics/vr2.png";
 import vr3 from "./pics/vr3.png";
-
 import vr4 from "./pics/vr4.png";
 import vr5 from "./pics/vr5.png";
 import vr6 from "./pics/vr6.png";
@@ -23,7 +22,7 @@ export function Vrchat() {
     const list: Pane[] = [];
     list.push({
       key: "vr1",
-      node: <img className="vr-pic" src={vr1} alt="#"></img>,
+      node: <img className="vr-pic" src={vr7} alt="#"></img>,
     });
     list.push({
       key: "vr2",
@@ -51,7 +50,7 @@ export function Vrchat() {
     });
     list.push({
       key: "vr7",
-      node: <img className="vr-pic" src={vr8} alt="#"></img>,
+      node: <img className="vr-pic" src={vr1} alt="#"></img>,
     });
 
     return list;
