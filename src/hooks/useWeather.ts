@@ -3,5 +3,6 @@ const weatherLink =
 
 export async function fetchWeather() {
   const res = await fetch(weatherLink);
+  console.log("Fetching weather data from:", weatherLink);
   return await res.json();
 }

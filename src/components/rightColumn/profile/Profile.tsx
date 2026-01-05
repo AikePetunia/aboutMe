@@ -5,6 +5,7 @@ import eye from "../../../assets/eye.gif";
 import { Countdown } from "../countDown/Countdown";
 import DiscordActivity from "../discordActivity/DiscordActivity";
 import { ShowMedia } from "../showMedia/showMedia";
+import { Badges } from "../badges/Badges";
 import "./profile.css";
 
 export function Profile() {
@@ -78,6 +79,7 @@ export function Profile() {
       </div>
       <Countdown icon={bdIcon} count={totalTimeAlive} />
       <DiscordActivity />
+      <Badges />
     </div>
   );
 }
