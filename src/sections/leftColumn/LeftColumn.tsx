@@ -10,6 +10,8 @@ import { Wakatime } from "../../components/leftColumn/Wakatime/Wakatime";
 import { Anime } from "../../components/leftColumn/Anime/Anime";
 
 export default function LeftColumn() {
+  const isPhone = window.innerWidth <= 850;
+
   return (
     <div className="left-grid">
       <div className="about-me-grid">
@@ -27,15 +29,25 @@ export default function LeftColumn() {
       <div className="country-data-grid">
         <CountryData />
       </div>
-      <div className="letterbox-grid">
-        <LetterBox />
-      </div>
-      <div className="wakatime-grid">
-        <Wakatime />
-      </div>
+      {!isPhone && (
+        <>
+          <div className="letterbox-grid">
+            <LetterBox />
+          </div>
+          <div className="wakatime-grid">
+            <Wakatime />
+          </div>
+        </>
+      )}
       <div className="anime-grid">
         <Anime />
       </div>
+      {isPhone && (
+        <div className="phone-left-spacing">
+          <Wakatime />
+          <LetterBox />
+        </div>
+      )}
     </div>
   );
 }

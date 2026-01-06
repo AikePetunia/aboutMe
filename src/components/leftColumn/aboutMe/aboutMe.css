@@ -17,22 +17,6 @@
   color: rgb(116, 116, 116);
 }
 
-/*
-.next-indicator {
-  width: 24px;
-  height: 24px;
-  background-color: transparent; 
-  border: 3px solid var(--glow-strong); 
-  border-radius: 50%;
-  position: absolute;
-  left: -30px;
-  bottom: 4px;
-  transition: 15s
-}
-*/
-
-
-
 .buttons-container {
   position: absolute;
   bottom: 5px;
@@ -79,4 +63,29 @@
 .setup-list > ul {
   padding: 0px 0px 0px 8px;
   margin: 8px 0 0 8px
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .about-me-container {
+    width: calc(100% - 16px);
+    gap: 12px;
+  }
+  
+  .buttons-container {
+    bottom: 3px;
+    right: 3px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-me-container {
+    width: 100%;
+    gap: 10px;
+    max-height: calc(100% - 20px);
+  }
+  
+  .my-pronouns {
+    font-size: 0.8rem;
+  }
 }

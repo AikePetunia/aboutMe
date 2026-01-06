@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-    position: absolute;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -22,6 +22,14 @@
   border-radius: 8px;
   transition-duration: 0.4s;
 }
+
 .letterbox-button:hover {
   background-color: var(--glow-strong);
+}
+
+@media (max-width: 900px) {
+  .letterbox-container {
+    position: static;
+    transform: none;
+  }
 }

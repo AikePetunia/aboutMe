@@ -2,7 +2,23 @@
   object-fit: cover;
   width: 20vw;
   height: 15vw;
-  border-radius: 8px ;
+  border-radius: 8px;
   display: block;
   margin: 0 auto;
+}
+
+/* Responsive styles */
+@media (max-width: 900px) {
+  .vr-pic {
+    width: 80%;
+    height: auto;
+    max-height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .vr-pic {
+    width: 100%;
+    max-height: 200px;
+  }
 }

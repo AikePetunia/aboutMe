@@ -142,3 +142,88 @@
 .vrchat-media-container a {
   transition-delay: 0.7s;
 }
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .showMediaContainer img {
+    width: 30px;
+    height: 30px;
+    margin: 0 3px;
+  }
+  
+  .github-media-container {
+    left: -200px;
+    top: -5px;
+  }
+  
+  .instagram-media-container {
+    left: -225px;
+    top: 25px;
+  }
+  
+  .discord-media-container {
+    left: -200px;
+    top: 70px;
+  }
+  
+  .twitter-media-container {
+    left: -100px;
+    top: -15px;
+  }
+  
+  .spotify-media-container {
+    top: -30px;
+  }
+  
+  .steam-media-container {
+    left: 15px;
+    top: -40px;
+  }
+  
+  .vrchat-media-container {
+    left: 0px;
+    top: -140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .showMediaContainer img {
+    width: 26px;
+    height: 26px;
+    margin: 0 2px;
+  }
+  
+  .github-media-container {
+    left: -160px;
+    top: -4px;
+  }
+  
+  .instagram-media-container {
+    left: -180px;
+    top: 20px;
+  }
+  
+  .discord-media-container {
+    left: -160px;
+    top: 55px;
+  }
+  
+  .twitter-media-container {
+    left: -80px;
+    top: -12px;
+  }
+  
+  .spotify-media-container {
+    top: -25px;
+  }
+  
+  .steam-media-container {
+    left: 10px;
+    top: -32px;
+  }
+  
+  .vrchat-media-container {
+    left: 0px;
+    top: -110px;
+  }
+}

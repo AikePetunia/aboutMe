@@ -152,14 +152,6 @@ full fade for each element, but the truth is that the fade is entirely xd
   transition: opacity 0.3s ease-in-out;
 }
 
-.fade-out {
-  opacity: 0;
-}
-
-.fade-in {
-  opacity: 1;
-}
-
 .activity {
   max-height: 200px;
   min-height: 120px; 
@@ -221,4 +213,66 @@ full fade for each element, but the truth is that the fade is entirely xd
   height: 35px;
   width: 35px;
   display: block; 
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .ds-activity {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+    padding: 10px 12px;
+  }
+  
+  .activity-image {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .activity-container {
+    margin: 0 15px;
+  }
+  
+  .activity-detail {
+    font-size: 0.9rem;
+  }
+  
+  .activity-state {
+    font-size: 0.8rem;
+  }
+  
+  .activity-time {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ds-activity {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    padding: 8px 10px;
+  }
+  
+  .activity-image {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .activity-container {
+    margin: 0 10px;
+  }
+  
+  .activities {
+    gap: 10px;
+  }
+  
+  .emote.no-activity {
+    right: 150px;
+  }
+  
+  .emote.no-activity > p {
+    font-size: 1rem;
+    max-width: 80px;
+  }
 }

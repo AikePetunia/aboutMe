@@ -22,6 +22,35 @@
   margin-bottom: 10px;
 }
 
+.log-button-container {
+  display: flex;
+  justify-content: end;
+  margin-top: 10px;
+  margin-right: 20px;
+  height: 0px;  
+}
+
+.log-button { 
+      background-color: var(--glow-weak);
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 8px;
+    transition-duration: 0.4s;
+    height: fit-content;
+    width: fit-content;
+}
+
+.log-button:hover {
+    background-color: var(--glow-strong);
+    color: white;
+}
+
 .photo-media-container {
   display: flex;
   justify-content: center;

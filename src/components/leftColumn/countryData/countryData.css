@@ -67,3 +67,42 @@
   font-size: 1.2rem;
   font-weight: 700;
 }
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .weather-temp-container {
+    gap: 1rem;
+  }
+  
+  .temp-celcius {
+    font-size: 2rem;
+  }
+  
+  .celcius {
+    font-size: 1.2rem;
+  }
+  
+  .temp-fahrenheit {
+    font-size: 1rem;
+  }
+  
+  .fahrenheit {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .weather-temp-container {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+  
+  .temp-celcius {
+    font-size: 1.8rem;
+  }
+  
+  .weather-title {
+    font-size: 1rem;
+  }
+}

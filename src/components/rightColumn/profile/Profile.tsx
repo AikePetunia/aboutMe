@@ -6,10 +6,12 @@ import { Countdown } from "../countDown/Countdown";
 import DiscordActivity from "../discordActivity/DiscordActivity";
 import { ShowMedia } from "../showMedia/showMedia";
 import { Badges } from "../badges/Badges";
+import { Log } from "./log/Log";
 import "./profile.css";
 
 export function Profile() {
   const [isShown, setIsShown] = useState(false);
+  const [showLog, setShowLog] = useState(false);
   const [totalTimeAlive, setTotalTimeAlive] = useState("");
   const mediaContainerRef = useRef<HTMLDivElement>(null);
 
@@ -55,6 +57,12 @@ export function Profile() {
 
   return (
     <div>
+      <div className="log-button-container">
+        <button className="log-button" onClick={() => setShowLog(true)}>
+          <span> LOG </span>
+        </button>
+      </div>
+      <Log isOpen={showLog} onClose={() => setShowLog(false)} />
       <div className="name-container">
         <h1 className="my-name"> Aike </h1>
         <img src={eye} alt="eye" className="my-icon"></img>

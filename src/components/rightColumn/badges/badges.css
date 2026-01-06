@@ -1,3 +1,30 @@
+.badges-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+}
+
+.webring-container {
+  text-align: center;
+  padding: 10px;
+}
+
 .webring-links > a {
   margin: 0 8px;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  .badges-container {
+    gap: 4px;
+    padding: 5px;
+  }
+  
+  .badges-container img,
+  .badges-container iframe {
+    width: 70px;
+    height: 25px;
+  }
 }

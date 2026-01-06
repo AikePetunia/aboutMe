@@ -1,7 +1,6 @@
 import "./App.css";
 import RightColumn from "./rightColumn/RightColumn.tsx";
 import LeftColumn from "./leftColumn/LeftColumn.tsx";
-import Influence from "./influence/Influence.tsx";
 export function App() {
   return (
     <>
@@ -13,7 +12,6 @@ export function App() {
           <RightColumn />
         </section>
       </div>
-      {/* <Influence /> */}
     </>
   );
 }

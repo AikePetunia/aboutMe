@@ -1,12 +1,11 @@
 import peak from "./peak.jpeg";
-import archLinux from "./archlinux.gif";
 export function WhoAmI() {
   return (
     <>
       <h3>Who am I ?!?!</h3>
       <p className="my-pronouns">
         She/Her/Ella
-        <a href="https://nikableh.moe/"> 🏳️‍⚧️ </a>
+        <a>🏳️‍⚧️</a>
         ESP/ENG
       </p>
       <br></br>
@@ -44,12 +43,6 @@ export function WhoAmI() {
         style={{ display: "block", margin: "20px auto" }}
         alt="Im at my peak"
       />
-      {/* 
-        https://silly.city/ 
-      <a href="https://archlinux.org">
-        <img src={archLinux} title="i use arch btw"></img>
-      </a>
-      */}
     </>
   );
 }

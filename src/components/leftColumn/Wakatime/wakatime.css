@@ -2,5 +2,14 @@
   display: flex;
   overflow: auto;
   justify-content: center;
+  align-items: center;
   gap: 1rem;
+  height: 100%;
+}
+
+@media (max-width: 900px) {
+  .wakatime-badges {
+    height: auto;
+    padding: 8px 0;
+  }
 }

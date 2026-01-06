@@ -16,6 +16,7 @@ import minecraft from "./assets/minecraft.gif";
 import tumblr from "./assets/2006.gif";
 import ublock from "./assets/ublock.png";
 import zanarkand from "./assets/zanarkand.gif";
+import nika from "./assets/nika.png";
 import "./badges.css";
 
 export function Badges() {
@@ -128,29 +129,43 @@ export function Badges() {
           src={zanarkand}
           width="88"
         />
+        <a
+          href="https://nikableh.moe"
+          rel="noopener noreferrer"
+          className="select-none inline-block m-1"
+          data-v-a6540401=""
+        >
+          <img
+            width="88"
+            height="31"
+            src={nika}
+            alt="nikableh's 88x31 badge"
+            className="badge"
+            data-v-a6540401=""
+          ></img>
+        </a>
       </div>
+
       <div className="webring-container">
         <br />
-        <br />
         <h3>webring !</h3>
-        <h5>doesn't work(yet)</h5>
         <div className="webring-links">
           <a
-            href="https://webring.example.com/prev?id=yoursite"
+            href="https://webring.grimmlabs.org/aike/prev"
             target="_blank"
             rel="noopener noreferrer"
           >
             ← prev
           </a>
           <a
-            href="https://webring.example.com"
+            href="https://webring.grimmlabs.org/"
             target="_blank"
             rel="noopener noreferrer"
           >
             home
           </a>
           <a
-            href="https://webring.example.com/next?id=yoursite"
+            href="https://webring.grimmlabs.org/aike/next"
             target="_blank"
             rel="noopener noreferrer"
           >

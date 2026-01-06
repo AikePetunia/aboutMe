@@ -13,29 +13,11 @@
 }
 
 .cd-icon {
-width: 36px;
+  width: 36px;
   height: 36px;
   border-radius: 50%;
   object-fit: contain;
   filter: drop-shadow(0 0 6px var(--glow-weak));
-}
-
-.cd-numbers {
-  display: flex;
-  gap: 0.1rem;
-}
-
-.cd-numbers span {
-  font-family: var(--font-mono);
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--primary);
-  background: #111317;
-  padding: 0.3rem 0.5rem;
-  border-radius: 8px;
-  box-shadow: 0 0 6px var(--glow-weak) inset, 0 0 8px rgba(0, 0, 0, 0.6);
-  min-width: fit-contents;
-  text-align: center;
 }
 
 .cd-digit {
@@ -47,4 +29,20 @@ width: 36px;
 .cd-digit.digit-changing {
   transform: scale(1.05);
   color: var(--primary);
+}
+
+/* Responsive styles */
+@media (max-width: 480px) {
+  .countdown-container {
+    padding: 0.2rem 0.4rem;
+  }
+  
+  .cd-icon {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .cd-digit {
+    font-size: 1rem;
+  }
 }
