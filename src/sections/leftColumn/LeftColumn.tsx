@@ -4,7 +4,7 @@ import { Spotify } from "../../components/leftColumn/Spotify/Spotify";
 import { Vrchat } from "../../components/leftColumn/vrchat/Vrchat";
 import { CurrentlyPlaying } from "../../components/leftColumn/Steam/Steam";
 import { CountryData } from "../../components/leftColumn/countryData/CountryData";
-import { LetterBox } from "../../components/leftColumn/Letterbox/LetterBox";
+import { LetterBox } from "../../components/leftColumn/letterbox/LetterBox";
 import { Wakatime } from "../../components/leftColumn/Wakatime/Wakatime";
 import { Anime } from "../../components/leftColumn/Anime/Anime";
 
