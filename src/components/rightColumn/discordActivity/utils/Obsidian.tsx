@@ -3,7 +3,7 @@ import {
   resolveActivityImage,
 } from "../../../../utils/discordUtils";
 import { CustomStatus } from "./CustomStatus";
-import type { Activity } from "../../types/discord";
+import type { Activity } from "../../../../types/discord";
 type Maybe<T> = T | null | undefined;
 
 interface ObsidianProps {

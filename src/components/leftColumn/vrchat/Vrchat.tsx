@@ -8,7 +8,7 @@ import vr6 from "./pics/vr6.png";
 import vr7 from "./pics/vr7.png";
 import vr8 from "./pics/vr8.png";
 
-import { useRotator } from "../../../hooks/useRotator.ts";
+import { useRotator } from "../../../hooks/useRotator";
 import { useMemo, useRef, useState } from "react";
 import "./vrchat.css";
 type Pane = {
@@ -54,7 +54,7 @@ export function Vrchat() {
     });
 
     return list;
-  });
+  }, []);
 
   const handleButtons = (direction: "left" | "right") => {
     setNewIndex((prev) => {

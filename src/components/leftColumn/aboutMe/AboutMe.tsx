@@ -1,8 +1,8 @@
-import { useRotator } from "../../../hooks/useRotator.ts";
+import { useRotator } from "../../../hooks/useRotator";
 import { useMemo, useRef, useEffect, useState } from "react";
-import { Stack } from "./Stack.tsx";
-import { Setup } from "./Setup.tsx";
-import { WhoAmI } from "./WhoAmI.tsx";
+import { Stack } from "./Stack";
+import { Setup } from "./Setup";
+import { WhoAmI } from "./WhoAmI";
 
 import "./aboutMe.css";
 
@@ -95,17 +95,19 @@ function Rotator({
   setIdx,
 }: {
   panes: Pane[];
-  containerRef: React.RefObject<HTMLDivElement>;
+  containerRef: React.RefObject<HTMLDivElement | null>;
   idx?: number;
   setIdx?: React.Dispatch<React.SetStateAction<number>>;
 }) {
-  const { currentPane, fading, transitionMs } = useRotator({
+  const { currentPane: rotatorPane, fading, transitionMs } = useRotator({
     panes,
     idx,
     setIdx,
     showMs: 20000,
     fadeMs: 500,
   });
+  
+  const currentPane = rotatorPane as Pane | undefined;
 
   // diff images based on current pane
   useEffect(() => {
