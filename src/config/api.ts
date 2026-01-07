@@ -1,6 +1,6 @@
 export const API_KEY = process.env.REACT_APP_API_KEY || "";
 
-export function getAuthHeaders(): HeadersInit {
+export function getAuthHeaders() {
   const isProd =
     typeof window !== "undefined" && window.location.hostname !== "localhost";
   if (isProd && API_KEY) {

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchSpotifyPlaylists, SpotifyPlaylist } from "../../../hooks/useSpotify";
-import './Spotify.css';
+import "./spotify.css";
+
 export function Spotify() {
   const [playlists, setPlaylists] = useState<SpotifyPlaylist[]>([]);
 

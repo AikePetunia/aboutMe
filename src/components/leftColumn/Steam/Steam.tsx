@@ -1,20 +1,8 @@
 import React from "react";
 import { fetchSteam } from "../../../hooks/useSteam";
 import "./steam.css";
-
-interface SteamGame {
-  appId: number | string;
-  name: string;
-  icon: string;
-  playtimeHours: number;
-}
-
-interface SteamDto {
-  games: SteamGame[];
-}
-
 export function CurrentlyPlaying() {
-  const [steamData, setSteamData] = React.useState<SteamDto | null>(null);
+  const [steamData, setSteamData] = React.useState(null);
 
   React.useEffect(() => {
     fetchSteam()

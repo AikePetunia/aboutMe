@@ -1,15 +1,8 @@
 import { useEffect, useState } from "react";
 import { fetchWeather } from "../../../hooks/useWeather";
 import "./countryData.css";
-
-interface WeatherData {
-  temperature_2m: number;
-  relative_humidity_2m: number;
-  time: string;
-}
-
 export function CountryData() {
-  const [weather, setWeather] = useState<WeatherData | null>(null);
+  const [weather, setWeather] = useState(null);
 
   useEffect(() => {
     fetchWeather()
@@ -21,7 +14,7 @@ export function CountryData() {
       });
   }, []);
 
-  function formatTime(weatherTime: string) {
+  function formatTime(weatherTime) {
     return weatherTime.slice(11, 16);
   }
   return (

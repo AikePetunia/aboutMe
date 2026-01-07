@@ -1,6 +1,6 @@
 interface CustomStatusProps {
-  emojiUrl: string | null | undefined;
-  statusText: string | null | undefined;
+  emojiUrl: string | null;
+  statusText: string | null;
 }
 
 export function CustomStatus({ emojiUrl, statusText }: CustomStatusProps) {

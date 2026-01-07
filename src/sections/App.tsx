@@ -1,6 +1,6 @@
 import "./App.css";
-import RightColumn from "./rightColumn/RightColumn";
-import LeftColumn from "./leftColumn/LeftColumn";
+import RightColumn from "./rightColumn/RightColumn.tsx";
+import LeftColumn from "./leftColumn/LeftColumn.tsx";
 export function App() {
   return (
     <>
