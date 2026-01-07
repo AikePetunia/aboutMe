@@ -45,7 +45,7 @@ export function CountryData() {
           </div>
         </div>
       ) : (
-        <p>wait till fetches :3</p>
+        <p>the api that i use (open-meteo) is currently broken ! sowy !</p>
       )}
     </>
   );

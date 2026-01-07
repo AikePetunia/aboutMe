@@ -10,7 +10,7 @@ export function Anime() {
 
   return (
     <>
-      <h3>Animes & Mangas that I've seen</h3>
+      <h4>Animes & Mangas that I've seen</h4>
       <div className="animes-grid">
         {animes.map((item) => (
           <div key={item.node.id} className="anime-item">

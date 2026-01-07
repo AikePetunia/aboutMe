@@ -147,7 +147,6 @@ export function Badges() {
       </div>
 
       <div className="webring-container">
-        <br />
         <h3>webring !</h3>
         <div className="webring-links">
           <a

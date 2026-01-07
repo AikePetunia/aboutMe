@@ -17,16 +17,13 @@
 }
 
 .log-container {
-  background-color: var(--bg-color, #1a1a2e);
-  border: 1px solid var(--glow-weak, #4a4a6a);
-  border-radius: 12px;
-  padding: 20px;
-  max-width: 500px;
-  width: 90%;
-  max-height: 70vh;
-  display: flex;
-  flex-direction: column;
-  opacity: 0;
+    padding: 12px;
+    background: rgba(59, 1, 1, 0.25);
+    border-radius: 16px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(232, 232, 232, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(232, 232, 232, 0.05);
   transform: translateY(-20px) scale(0.95);
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
