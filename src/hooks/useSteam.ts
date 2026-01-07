@@ -1,18 +1,26 @@
-// this types are already o the backend files.
-import { ApiOk, ApiErr, SteamGame } from "../backend/src/services/types";
+// Local copies of backend types to avoid cross-repo import.
+type SteamGame = {
+  appId: number | string;
+  name: string;
+  icon: string;
+  playtimeHours: number;
+};
+
+type ApiOk<T> = { ok: true; data: T };
+type ApiErr = {
+  ok: false;
+  provider?: string;
+  error: { code: string; message: string; status: number };
+};
 
 type SteamDto = { games: SteamGame[] };
 
-function getApiBase() {
-  return typeof window !== "undefined" &&
-    window.location.hostname === "localhost"
-    ? "http://localhost:4000"
-    : "";
-}
-
 export async function fetchSteam(): Promise<SteamDto> {
+  const { getApiBase, getAuthHeaders } = await import("../config/api");
   const base = getApiBase();
-  const res = await fetch(`${base}/api/steam/recent`);
+  const res = await fetch(`${base}/api/steam/recent`, {
+    headers: getAuthHeaders(),
+  });
 
   const text = await res.text();
 

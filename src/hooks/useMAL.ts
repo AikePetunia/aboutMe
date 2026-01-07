@@ -37,9 +37,12 @@ export type MALAnimeResponse = {
 };
 
 export async function fetchAnimes(status: string = "completed") {
-  const response = await fetch(
-    `http://localhost:4000/api/mal/user/anime?status=${status}`
-  );
+  const { getApiBase, getAuthHeaders } = await import("../config/api");
+  const base = getApiBase();
+
+  const response = await fetch(`${base}/api/mal/user/anime?status=${status}`, {
+    headers: getAuthHeaders(),
+  });
   const data = await response.json();
   if (!response.ok) throw new Error(data?.error || "Error al obtener animes");
   return data as MALAnimeResponse;
