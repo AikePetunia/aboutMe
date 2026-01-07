@@ -1,13 +1,12 @@
-// sections/LeftColumn.tsx
 import "./leftColumn.css";
 import { AboutMe } from "../../components/leftColumn/aboutMe/AboutMe";
-import { Spotify } from "../../components/leftColumn/spotify/Spotify";
+import { Spotify } from "../../components/leftColumn/Spotify/Spotify";
 import { Vrchat } from "../../components/leftColumn/vrchat/Vrchat";
-import { CurrentlyPlaying } from "../../components/leftColumn/steam/Steam";
+import { CurrentlyPlaying } from "../../components/leftColumn/Steam/Steam";
 import { CountryData } from "../../components/leftColumn/countryData/CountryData";
-import { LetterBox } from "../../components/leftColumn/letterbox/LetterBox";
-import { Wakatime } from "../../components/leftColumn/wakatime/Wakatime";
-import { Anime } from "../../components/leftColumn/anime/Anime";
+import { LetterBox } from "../../components/leftColumn/Letterbox/LetterBox";
+import { Wakatime } from "../../components/leftColumn/Wakatime/Wakatime";
+import { Anime } from "../../components/leftColumn/Anime/Anime";
 
 export default function LeftColumn() {
   const isPhone = window.innerWidth <= 850;
