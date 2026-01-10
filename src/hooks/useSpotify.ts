@@ -26,6 +26,5 @@ export async function fetchSpotifyPlaylists() {
   });
 
   const data = await response.json();
-  console.log("Spotify response:", data); // Debug
   return data as { playlists: SpotifyPlaylist[]; total: number };
 }

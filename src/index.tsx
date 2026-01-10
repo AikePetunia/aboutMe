@@ -5,8 +5,8 @@ import App from "./sections/App.tsx";
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+
+// saque strict mode
 root.render(
-  <React.StrictMode>
     <App />
-  </React.StrictMode>
 );
