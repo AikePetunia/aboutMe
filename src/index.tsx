@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from "react-dom/client";
 import App from "./sections/App.tsx";
 
@@ -7,6 +6,4 @@ const root = ReactDOM.createRoot(
 );
 
 // saque strict mode
-root.render(
-    <App />
-);
+root.render(<App />);
