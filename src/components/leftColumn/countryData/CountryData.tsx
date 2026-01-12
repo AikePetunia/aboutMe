@@ -14,7 +14,7 @@ export function CountryData() {
       });
   }, []);
 
-  function formatTime(weatherTime) {
+  function formatTime(weatherTime: string) {
     return weatherTime.slice(11, 16);
   }
   return (
