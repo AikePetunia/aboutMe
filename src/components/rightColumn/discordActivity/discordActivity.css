@@ -107,7 +107,7 @@ full fade for each element, but the truth is that the fade is entirely xd
   right: 27px;
   bottom: 2px;
   z-index: 9;
-  width: fit-content;
+  width: 65px;
   padding-right: 10px;
   max-width: 65px;
   overflow: hidden;
@@ -117,6 +117,11 @@ full fade for each element, but the truth is that the fade is entirely xd
   text-align: left;
 }
 
+@media (max-width: 800px) {
+  .status-text-emoji {
+  width: 60px;
+  }
+}
 .status-text-normal {
  background-color: rgba(10, 10, 10, 0.9);
   padding: 3px;
@@ -129,7 +134,7 @@ full fade for each element, but the truth is that the fade is entirely xd
   z-index: 9;
   width: fit-content;
   padding-right: 5px;
-  max-width: 98px;
+  width: 98px;
   overflow: hidden;
   text-overflow: ellipsis;
   padding-left: 5px;
