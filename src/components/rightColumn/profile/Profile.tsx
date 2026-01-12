@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import meImage from "../../../assets/me.webp";
+import meImage from "../../../assets/me.jpg";
 import bdIcon from "../../../assets/bdIcon.gif";
 import eye from "../../../assets/eye.gif";
 import { Countdown } from "../countDown/Countdown";

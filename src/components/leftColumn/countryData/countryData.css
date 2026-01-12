@@ -5,6 +5,11 @@
   height: 100%;
 }
 
+@media (max-width: 800px) {
+  .weather-card {
+    align-items: center;
+  }
+}
 .weather-title {
   font-size: 1.2rem;
   font-weight: 600;
