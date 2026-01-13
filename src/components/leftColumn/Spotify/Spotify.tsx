@@ -31,7 +31,7 @@ useEffect(() => {
             <div className="playlist-info">
               <h4>{playlist.name}</h4>
               <p>{playlist.description}</p>
-              <p>songs: {playlist.tracks.total}</p>
+              <span>{playlist.tracks.total} songs</span>
             </div>
           </div>
         ))}

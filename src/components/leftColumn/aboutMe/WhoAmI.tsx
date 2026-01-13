@@ -32,7 +32,8 @@ export function WhoAmI() {
         >
           Inverte
         </a>{" "}
-        as a front-end/WebGL developer, and dabbling in data analysis
+        as a WebGL Frontend + analythics developer, and dabbling in data
+        analysis
       </p>
       <br></br>
       <p>Happy to say I am living, not surviving.</p>

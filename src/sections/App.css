@@ -68,7 +68,7 @@ a {
   grid-template-areas:
     "left  right"
     "influence right";
-    padding: 6px;
+    padding: 4px;
 }
 
 .left      { grid-area: left; }

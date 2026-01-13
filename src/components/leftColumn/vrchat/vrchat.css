@@ -1,13 +1,12 @@
 .vr-pic {
   object-fit: cover;
   width: 20vw;
-  height: 15vw;
+  height: 13vw;
   border-radius: 8px;
   display: block;
   margin: 0 auto;
 }
 
-/* Responsive styles */
 @media (max-width: 900px) {
   .vr-pic {
     width: 80%;

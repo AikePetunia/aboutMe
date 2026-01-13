@@ -11,7 +11,7 @@
   display: flex;
   flex-direction: row;
   gap: 12px;
-  padding: 12px;
+  padding: 6px;
   border-radius: 8px;
   align-items: flex-start;
 }
@@ -44,31 +44,3 @@
     white-space: nowrap;
 
 }
-
-/* Responsive styles */
-@media (max-width: 768px) {
-  .anime-item img {
-    width: 80px;
-    height: 130px;
-  }
-  
-  .anime-item {
-    gap: 8px;
-    padding: 8px;
-  }
-}
-
-@media (max-width: 480px) {
-  .anime-item img {
-    width: 70px;
-    height: 110px;
-  }
-  
-  .anime-info h4 {
-    font-size: 0.9rem;
-  }
-  
-  .anime-info p {
-    font-size: 0.8rem;
-  }
-} 

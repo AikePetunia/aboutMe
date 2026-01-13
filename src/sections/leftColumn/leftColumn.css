@@ -1,7 +1,7 @@
 .left-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1.3fr 1.3fr;
-  grid-template-rows: 1fr 1fr 1fr 1.5fr;
+  grid-template-columns: 1fr 1fr 0.5fr 1.5fr 1.9fr;
+  grid-template-rows: 1fr 2fr 0.7fr 1fr;
   grid-column-gap: 12px;
   grid-row-gap: 12px;
   height: 99vh;
@@ -129,7 +129,6 @@
   }
 
   .phone-left-spacing > * {
-    flex: 1;
     padding: 12px;
     background: rgba(59, 1, 1, 0.25);
     border-radius: 16px;

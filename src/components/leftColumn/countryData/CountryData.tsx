@@ -22,7 +22,7 @@ export function CountryData() {
       {weather ? (
         <div className="weather-card">
           <div className="weather-title">
-            <h5>Weather on my city</h5>
+            <h4>Weather on</h4>
             <p className="weather-location">Cordoba, Argentina </p>
           </div>
           <div className="weather-temp-container">
